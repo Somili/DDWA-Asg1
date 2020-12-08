@@ -286,15 +286,14 @@ input[type=text]:placeholder {
     </div>
 
     <!-- Login Form -->
-    <form>
-    <select class="browser-default custom-select">
-  <option selected>Open this select menu</option>
-  <option value="1">Student</option>
+    <form action="processLogin.php" method="post">
+    <select class="browser-default custom-select" name="userType">
+  <option value="1" selected>Student</option>
   <option value="2">Lecturer</option>
   <option value="3">Admin</option>
 </select>
       <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
-      <input type="text" id="password" class="fadeIn third" name="login" placeholder="password">
+      <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
 
