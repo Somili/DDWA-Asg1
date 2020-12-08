@@ -33,10 +33,10 @@
                 $fullName = $row["full_name"];
                 $title = $row["title"];
                 $description = $row["short_description"];
-                $company = "";
-                $budget = "";
-                $startDate = "";
-                $endDate = "";
+                $company = $row["company_name"];
+                $budget = $row["budget"];
+                $startDate = $row["start_date"];
+                $endDate = $row["completion_date"];
             }
         }
     }
