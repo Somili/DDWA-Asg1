@@ -1,7 +1,7 @@
 <?php
     session_start();
     $loginUserID="1";
-    $fullName = "John Doe";
+    $fullName = "Error";
     $title = "";
     $description = "";
     $company = "";
@@ -14,6 +14,13 @@
     $hardDisk = "";
     $ram = "";
     $operatingSystem = "";
+    $studentID = "";
+    $full_name = "";
+    $contactNo = "";
+    $schoolName = "";
+    $yearEnrolled = "";
+    $serialNo = "";
+    $ProjectID = "";
     if(isset($_SESSION["loginUserID"])){
         $loginUserID = $_SESSION["loginUserID"];
     }
@@ -45,7 +52,6 @@
                 $operatingSystem = $row["operating_system"];               
             }
         }
- 
       
       $sql = "SELECT * FROM student s, project p where s.project_id = p.project_id and s.student_id=" . $loginUserID;
       $result = $connection->query($sql);
@@ -58,6 +64,20 @@
               $budget = $row["budget"];
               $startDate = $row["start_date"];
               $endDate = $row["completion_date"];
+          }
+      }
+
+      $sql = "SELECT * FROM `student`";
+      $result = $connection->query($sql);
+      if ($result->num_rows > 0) {
+          if($row = mysqli_fetch_assoc($result)) {
+              $studentID = $row["student_id"];
+              $full_name = $row["full_name"];
+              $contactNo = $row["contact_no"];
+              $schoolName = $row["school_name"];
+              $yearEnrolled = $row["year_enrolled"];
+              $serialNo = $row["serial_number"];
+              $ProjectID = $row["project_id"];
           }
       }
     }
@@ -284,6 +304,31 @@
                                        <td><?php echo $hardDisk?></td>
                                        <td><?php echo $ram?></td>
                                        <td><?php echo $operatingSystem?></td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+                              <p>Your particulars</p>
+                              <table class="table">
+                                 <thead>
+                                    <tr>
+                                       <th scope="col">Student ID</th>
+                                       <th scope="col">Your Name</th>
+                                       <th scope="col">Contact Number</th>
+                                       <th scope="col">School Enrolled</th>
+                                       <th scope="col">Year Enrolled</th>
+                                       <th scope="col">Notebook Serial Number</th>
+                                       <th scope="col">Project ID</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td><?php echo $studentID?></td>
+                                       <td><?php echo $full_name?></td>
+                                       <td><?php echo $contactNo?></td>
+                                       <td><?php echo $schoolName?></td>
+                                       <td><?php echo $yearEnrolled?></td>
+                                       <td><?php echo $serialNo?></td>
+                                       <td><?php echo $ProjectID?></td>
                                     </tr>
                                  </tbody>
                               </table>
