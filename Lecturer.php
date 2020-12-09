@@ -25,7 +25,7 @@
         );
     }
     else {
-        $sql = "SELECT * FROM student s, project p where s.project_id = p.project_id and s.student_id=" . $loginUserID;
+        $sql = "SELECT * FROM lecturer l, project p where l.project_id = p.project_id and l.lecturer_id=" . $loginUserID;
 
         $result = $connection->query($sql);
         if ($result->num_rows > 0) {
