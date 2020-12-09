@@ -8,6 +8,12 @@
     $budget = "";
     $startDate = "";
     $endDate = "";
+    $make = "";
+    $model = "";
+    $processor = "";
+    $hardDisk = "";
+    $ram = "";
+    $operatingSystem = "";
     if(isset($_SESSION["loginUserID"])){
         $loginUserID = $_SESSION["loginUserID"];
     }
@@ -24,21 +30,35 @@
             " (" . mysqli_connect_errno() . ")"
         );
     }
-    else {
+    else if{
         $sql = "SELECT * FROM student s, project p where s.project_id = p.project_id and s.student_id=" . $loginUserID;
 
         $result = $connection->query($sql);
         if ($result->num_rows > 0) {
             if($row = mysqli_fetch_assoc($result)) {
-                $fullName = $row["full_name"];
-                $title = $row["title"];
-                $description = $row["short_description"];
-                $company = $row["company_name"];
-                $budget = $row["budget"];
-                $startDate = $row["start_date"];
-                $endDate = $row["completion_date"];
+                $make = $row["make"];
+                $model = $row["model"];
+                $processor = $row["processor"];
+                $hardDisk = $row["hard_disk_capacity"];
+                $ram = $row["amount_of_RAM"];
+                $operatingSystem = $row["operating_system"];               
             }
         }
+    }else{
+      $sql = "SELECT * FROM student s, notebook n where s.project_id = n.serial_number and s.student_id=" . $loginUserID;
+
+      $result = $connection->query($sql);
+      if ($result->num_rows > 0) {
+          if($row = mysqli_fetch_assoc($result)) {
+              $fullName = $row["full_name"];
+              $title = $row["title"];
+              $description = $row["short_description"];
+              $company = $row["company_name"];
+              $budget = $row["budget"];
+              $startDate = $row["start_date"];
+              $endDate = $row["completion_date"];
+          }
+      }
     }
 ?>
 
@@ -72,7 +92,7 @@
                                  <div class="logo"></div>
                               </div>
                               <div class="peer peer-greed">
-                                 <h5 class="lh-1 mB-0 logo-text">IMGD Resource</h5>
+                                 <h5 class="lh-1 mB-0 logo-text">IRL</h5>
                               </div>
                            </div>
                         </a>
@@ -240,6 +260,29 @@
                                        <td><?php echo $budget?></td>
                                        <td><?php echo $startDate?></td>
                                        <td><?php echo $endDate?></td>
+                                    </tr>
+                                 </tbody>
+                              </table>
+
+                              <table class="table">
+                                 <thead>
+                                    <tr>
+                                       <th scope="col">Project Title</th>
+                                       <th scope="col">Short Description</th>
+                                       <th scope="col">Company</th>
+                                       <th scope="col">Budget</th>
+                                       <th scope="col">Start Date</th>
+                                       <th scope="col">Completion Date</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td><?php echo $make?></td>
+                                       <td><?php echo $model?></td>
+                                       <td><?php echo $processor?></td>
+                                       <td><?php echo $hardDisk?></td>
+                                       <td><?php echo $ram?></td>
+                                       <td><?php echo $operatingSystem?></td>
                                     </tr>
                                  </tbody>
                               </table>

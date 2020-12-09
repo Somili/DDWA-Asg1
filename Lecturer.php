@@ -72,7 +72,7 @@
                                  <div class="logo"></div>
                               </div>
                               <div class="peer peer-greed">
-                                 <h5 class="lh-1 mB-0 logo-text">IMGD Resource</h5>
+                                 <h5 class="lh-1 mB-0 logo-text">IRL</h5>
                               </div>
                            </div>
                         </a>
@@ -123,7 +123,7 @@
                         <div class="col-md-12">
                            <div class="bgc-white bd bdrs-3 p-20 mB-20">
                               <h4 class="c-grey-900 mB-20">Active Projects</h4>
-                              <p>This table displays the list of active projects that you are currently working on.</p>
+                              <p>This table displays the list of active projects that you are currently supervising.</p>
                               <table class="table">
                                  <thead>
                                     <tr>
