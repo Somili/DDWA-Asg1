@@ -48,7 +48,7 @@
     } else {
       
       //   //admin login
-      $sql = "SELECT * FROM `admin` WHERE admin_id='1' and password='admin'";
+      $sql = "SELECT * FROM `admin` WHERE admin_id=".$loginID." and password='".$password."'";
       $result = $connection->query($sql);
         if ($result->num_rows > 0) {
       header("Location: Admin.php");

@@ -1,13 +1,19 @@
 <?php
     session_start();
     $loginUserID="1";
-    $fullName = "John Doe";
+    $fullName = "";
     $title = "";
     $description = "";
     $company = "";
     $budget = "";
     $startDate = "";
     $endDate = "";
+    $full_L_name = "";
+    $dateJoined = "";
+    $officeLocation = "";
+    $contactNumber = "";
+    $lecturer_ID = "";
+    $projectID = "";
     if(isset($_SESSION["loginUserID"])){
         $loginUserID = $_SESSION["loginUserID"];
     }
@@ -26,7 +32,6 @@
     }
     else {
         $sql = "SELECT * FROM lecturer l, project p where l.project_id = p.project_id and l.lecturer_id=" . $loginUserID;
-
         $result = $connection->query($sql);
         if ($result->num_rows > 0) {
             if($row = mysqli_fetch_assoc($result)) {
@@ -39,13 +44,26 @@
                 $endDate = $row["completion_date"];
             }
         }
+
+        $sql = "SELECT * FROM lecturer WHERE lecturer_id=" . $loginUserID;
+        $result = $connection->query($sql);
+        if ($result->num_rows > 0) {
+            if($row = mysqli_fetch_assoc($result)) {
+                $lecturer_ID = $row["lecturer_id"];
+                $full_L_name = $row["full_name"];
+                $dateJoined = $row["date_joined"];
+                $officeLocation = $row["office_location"];
+                $contactNumber = $row["contact_no"];
+                $projectID = $row["project_id"];
+            }
+        }
     }
 ?>
 
 <!DOCTYPE html>
 <html>
    <head>
-      <title>Student</title>
+      <title>Lecturer</title>
       <style>#loader{transition:all .3s ease-in-out;opacity:1;visibility:visible;position:fixed;height:100vh;width:100%;background:#fff;z-index:90000}#loader.fadeOut{opacity:0;visibility:hidden}.spinner{width:40px;height:40px;position:absolute;top:calc(50% - 20px);left:calc(50% - 20px);background-color:#333;border-radius:100%;-webkit-animation:sk-scaleout 1s infinite ease-in-out;animation:sk-scaleout 1s infinite ease-in-out}@-webkit-keyframes sk-scaleout{0%{-webkit-transform:scale(0)}100%{-webkit-transform:scale(1);opacity:0}}@keyframes sk-scaleout{0%{-webkit-transform:scale(0);transform:scale(0)}100%{-webkit-transform:scale(1);transform:scale(1);opacity:0}}</style>
       <link href="https://colorlib.com/polygon/adminator/style.css" rel="stylesheet">
    </head>
@@ -143,6 +161,29 @@
                                        <td><?php echo $budget?></td>
                                        <td><?php echo $startDate?></td>
                                        <td><?php echo $endDate?></td>
+                                    </tr>
+                                 </tbody>
+                              </table><br>
+                              <p>Your particulars</p>
+                              <table class="table">
+                                 <thead>
+                                    <tr>
+                                       <th scope="col">Lecturer ID</th>
+                                       <th scope="col">Your Name</th>
+                                       <th scope="col">Date Joined</th>
+                                       <th scope="col">Office Location</th>
+                                       <th scope="col">Contact Number</th>
+                                       <th scope="col">Project ID</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td><?php echo $lecturer_ID?></td>
+                                       <td><?php echo $full_L_name?></td>
+                                       <td><?php echo $dateJoined?></td>
+                                       <td><?php echo $officeLocation?></td>
+                                       <td><?php echo $contactNumber?></td>
+                                       <td><?php echo $projectID?></td>
                                     </tr>
                                  </tbody>
                               </table>

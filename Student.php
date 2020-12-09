@@ -39,8 +39,6 @@
     }
     else{
       $sql = "SELECT * FROM student s, notebook n where s.serial_number = n.serial_number and s.student_id=" . $loginUserID;
-        
-
         $result = $connection->query($sql);
         if ($result->num_rows > 0) {
             if($row = mysqli_fetch_assoc($result)) {
@@ -70,7 +68,7 @@
       $sql = "SELECT * FROM `student` WHERE student_id=" . $loginUserID . "";
       $result = $connection->query($sql);
       if ($result->num_rows > 0) {
-          if($row = mysqli_fetch_assoc($result)) {
+         if($row = mysqli_fetch_assoc($result)) {
               $studentID = $row["student_id"];
               $full_name = $row["full_name"];
               $contactNo = $row["contact_no"];
@@ -78,9 +76,10 @@
               $yearEnrolled = $row["year_enrolled"];
               $serialNo = $row["serial_number"];
               $ProjectID = $row["project_id"];
-          }
+         }
       }
-    }
+   }
+   
 ?>
 
 <!DOCTYPE html>
