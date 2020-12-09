@@ -201,13 +201,13 @@
                            <div class="peer mR-10"><img class="w-2r bdrs-50p" src="" alt=""></div>
                            <div class="peer"><span class="fsz-sm c-grey-900"><?php echo $fullName?></span></div>
                         </a>
-                        <!--<ul class="dropdown-menu fsz-sm">
+                        <ul class="dropdown-menu fsz-sm">
                            <li><a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-settings mR-10"></i> <span>Setting</span></a></li>
                            <li><a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-user mR-10"></i> <span>Profile</span></a></li>
                            <li><a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-email mR-10"></i> <span>Messages</span></a></li>
                            <li role="separator" class="divider"></li>
                            <li><a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-power-off mR-10"></i> <span>Logout</span></a></li>
-                        </ul>-->
+                        </ul>
                      </li>
                   </ul>
                </div>
@@ -406,11 +406,11 @@
                </div>
             </main>
             <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">
-               <span>Copyright © 2020 Designed by Shiyu - . All rights reserved.</span>
+               <span>No Copyright © 2020 DDWA Chen Shiyu S10196930</span>
               
             </footer>
          </div>
       </div>
-      <script type="text/javascript" src="https://colorlib.com/polygon/adminator/vendor.js"></script><script type="text/javascript" src="JS/bundle.js"></script>
+      <script type="text/javascript" src="JS/vendor.js"></script><script type="text/javascript" src="JS/bundle.js"></script>
    </body>
 </html>
