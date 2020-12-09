@@ -67,7 +67,7 @@
           }
       }
 
-      $sql = "SELECT * FROM `student`";
+      $sql = "SELECT * FROM `student` WHERE student_id=" . $loginUserID . "";
       $result = $connection->query($sql);
       if ($result->num_rows > 0) {
           if($row = mysqli_fetch_assoc($result)) {
