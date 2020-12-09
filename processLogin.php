@@ -46,12 +46,27 @@
 
 
     } else {
-        //admin login
+      
+      //   //admin login
+      $sql = "SELECT * FROM `admin` WHERE admin_id='1' and password='admin'";
+      $result = $connection->query($sql);
+        if ($result->num_rows > 0) {
+      header("Location: Admin.php");
+        }
+      else {
+        echo '<script language="javascript">alert("Wrong UserID/Password");location.href="Login.php";</script>';
+      }
+      //   $sql = "SELECT * FROM 'admin' WHERE admin_id=". $loginID . "' and password='". $password ."'";
+      //   $result = $connection->query($sql);
+      //   if ($result->num_rows > 0) {
+      //     //login successfully
+      //     session_start();
+      //     $_SESSION["loginUserID"] = $loginID;
+      //     header("Location: Admin.php");
+      // } else {
+      //   echo '<script language="javascript">alert("Wrong UserID/Password");location.href="Login.php";</script>';
+      // }
     }
-    
-	
-	
-	
 
   }
 

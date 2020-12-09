@@ -72,7 +72,7 @@
                                  <div class="logo"></div>
                               </div>
                               <div class="peer peer-greed">
-                                 <h5 class="lh-1 mB-0 logo-text">DDWA</h5>
+                                 <h5 class="lh-1 mB-0 logo-text">IMGD Resource</h5>
                               </div>
                            </div>
                         </a>
