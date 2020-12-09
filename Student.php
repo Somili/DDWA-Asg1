@@ -30,8 +30,9 @@
             " (" . mysqli_connect_errno() . ")"
         );
     }
-    else if{
-        $sql = "SELECT * FROM student s, project p where s.project_id = p.project_id and s.student_id=" . $loginUserID;
+    else{
+      $sql = "SELECT * FROM student s, notebook n where s.serial_number = n.serial_number and s.student_id=" . $loginUserID;
+        
 
         $result = $connection->query($sql);
         if ($result->num_rows > 0) {
@@ -44,9 +45,9 @@
                 $operatingSystem = $row["operating_system"];               
             }
         }
-    }else{
-      $sql = "SELECT * FROM student s, notebook n where s.project_id = n.serial_number and s.student_id=" . $loginUserID;
-
+ 
+      
+      $sql = "SELECT * FROM student s, project p where s.project_id = p.project_id and s.student_id=" . $loginUserID;
       $result = $connection->query($sql);
       if ($result->num_rows > 0) {
           if($row = mysqli_fetch_assoc($result)) {
@@ -240,7 +241,7 @@
                         <div class="col-md-12">
                            <div class="bgc-white bd bdrs-3 p-20 mB-20">
                               <h4 class="c-grey-900 mB-20">Active Projects</h4>
-                              <p>This table displays the list of active projects that you are currently working on.</p>
+                              <p>Projects that you are currently working on.</p>
                               <table class="table">
                                  <thead>
                                     <tr>
@@ -262,17 +263,17 @@
                                        <td><?php echo $endDate?></td>
                                     </tr>
                                  </tbody>
-                              </table>
-
+                              </table><br>
+                              <p>Your notebook</p>
                               <table class="table">
                                  <thead>
                                     <tr>
-                                       <th scope="col">Project Title</th>
-                                       <th scope="col">Short Description</th>
-                                       <th scope="col">Company</th>
-                                       <th scope="col">Budget</th>
-                                       <th scope="col">Start Date</th>
-                                       <th scope="col">Completion Date</th>
+                                       <th scope="col">Make</th>
+                                       <th scope="col">Model</th>
+                                       <th scope="col">Processor</th>
+                                       <th scope="col">Hard Disk</th>
+                                       <th scope="col">Amount of Ram</th>
+                                       <th scope="col">Operating System</th>
                                     </tr>
                                  </thead>
                                  <tbody>
