@@ -21,6 +21,12 @@
     $yearEnrolled = "";
     $serialNo = "";
     $ProjectID = "";
+    $softwareTitle = "";
+    $version = "";
+    $publisher = "";
+    $pricePerLicense = "";
+    $NoOfLicense = "";
+    $datePurchased = "";
     if(isset($_SESSION["loginUserID"])){
         $loginUserID = $_SESSION["loginUserID"];
     }
@@ -76,6 +82,19 @@
               $yearEnrolled = $row["year_enrolled"];
               $serialNo = $row["serial_number"];
               $ProjectID = $row["project_id"];
+         }
+      }
+
+      $sql = "SELECT * FROM software s, category c WHERE s.category_id = c.category_id and s.ID=" . $loginUserID;
+      $result = $connection->query($sql);
+      if ($result->num_rows > 0) {
+         if($row = mysqli_fetch_assoc($result)) {
+              $softwareTitle = $row["title"];
+              $version = $row["version"];
+              $publisher = $row["publisher"];
+              $pricePerLicense = $row["price_per_license"];
+              $NoOfLicense = $row["no_of_license"];
+              $datePurchased = $row["date_purchase"];
          }
       }
    }
@@ -135,107 +154,10 @@
                <div class="header-container">
                   <ul class="nav-left">
                      <li><a id="sidebar-toggle" class="sidebar-toggle" href="javascript:void(0);"><i class="ti-menu"></i></a></li>
-                     <!--<li class="search-box"><a class="search-toggle no-pdd-right" href="javascript:void(0);"><i class="search-icon ti-search pdd-right-10"></i> <i class="search-icon-close ti-close pdd-right-10"></i></a></li>
-                     <li class="search-input"><input class="form-control" type="text" placeholder="Search..."></li>-->
+                     
                   </ul>
                   <ul class="nav-right">
-                     <!--<li class="notifications dropdown">
-                        <span class="counter bgc-red">3</span> <a href="" class="dropdown-toggle no-after" data-toggle="dropdown"><i class="ti-bell"></i></a>
-                        <ul class="dropdown-menu">
-                           <li class="pX-20 pY-15 bdB"><i class="ti-bell pR-10"></i> <span class="fsz-sm fw-600 c-grey-900">Notifications</span></li>
-                           <li>
-                              <ul class="ovY-a pos-r scrollable lis-n p-0 m-0 fsz-sm">
-                                 <li>
-                                    <a href="" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
-                                       <div class="peer mR-15"><img class="w-3r bdrs-50p" src="https://randomuser.me/api/portraits/men/1.jpg" alt=""></div>
-                                       <div class="peer peer-greed">
-                                          <span><span class="fw-500">John Doe</span> <span class="c-grey-600">liked your <span class="text-dark">post</span></span></span>
-                                          <p class="m-0"><small class="fsz-xs">5 mins ago</small></p>
-                                       </div>
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
-                                       <div class="peer mR-15"><img class="w-3r bdrs-50p" src="https://randomuser.me/api/portraits/men/2.jpg" alt=""></div>
-                                       <div class="peer peer-greed">
-                                          <span><span class="fw-500">Moo Doe</span> <span class="c-grey-600">liked your <span class="text-dark">cover image</span></span></span>
-                                          <p class="m-0"><small class="fsz-xs">7 mins ago</small></p>
-                                       </div>
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
-                                       <div class="peer mR-15"><img class="w-3r bdrs-50p" src="https://randomuser.me/api/portraits/men/3.jpg" alt=""></div>
-                                       <div class="peer peer-greed">
-                                          <span><span class="fw-500">Lee Doe</span> <span class="c-grey-600">commented on your <span class="text-dark">video</span></span></span>
-                                          <p class="m-0"><small class="fsz-xs">10 mins ago</small></p>
-                                       </div>
-                                    </a>
-                                 </li>
-                              </ul>
-                           </li>
-                           <li class="pX-20 pY-15 ta-c bdT"><span><a href="" class="c-grey-600 cH-blue fsz-sm td-n">View All Notifications <i class="ti-angle-right fsz-xs mL-10"></i></a></span></li>
-                        </ul>
-                     </li>
-                     <li class="notifications dropdown">
-                        <span class="counter bgc-blue">3</span> <a href="" class="dropdown-toggle no-after" data-toggle="dropdown"><i class="ti-email"></i></a>
-                        <ul class="dropdown-menu">
-                           <li class="pX-20 pY-15 bdB"><i class="ti-email pR-10"></i> <span class="fsz-sm fw-600 c-grey-900">Emails</span></li>
-                           <li>
-                              <ul class="ovY-a pos-r scrollable lis-n p-0 m-0 fsz-sm">
-                                 <li>
-                                    <a href="" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
-                                       <div class="peer mR-15"><img class="w-3r bdrs-50p" src="https://randomuser.me/api/portraits/men/1.jpg" alt=""></div>
-                                       <div class="peer peer-greed">
-                                          <div>
-                                             <div class="peers jc-sb fxw-nw mB-5">
-                                                <div class="peer">
-                                                   <p class="fw-500 mB-0">John Doe</p>
-                                                </div>
-                                                <div class="peer"><small class="fsz-xs">5 mins ago</small></div>
-                                             </div>
-                                             <span class="c-grey-600 fsz-sm">Want to create your own customized data generator for your app...</span>
-                                          </div>
-                                       </div>
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
-                                       <div class="peer mR-15"><img class="w-3r bdrs-50p" src="https://randomuser.me/api/portraits/men/2.jpg" alt=""></div>
-                                       <div class="peer peer-greed">
-                                          <div>
-                                             <div class="peers jc-sb fxw-nw mB-5">
-                                                <div class="peer">
-                                                   <p class="fw-500 mB-0">Moo Doe</p>
-                                                </div>
-                                                <div class="peer"><small class="fsz-xs">15 mins ago</small></div>
-                                             </div>
-                                             <span class="c-grey-600 fsz-sm">Want to create your own customized data generator for your app...</span>
-                                          </div>
-                                       </div>
-                                    </a>
-                                 </li>
-                                 <li>
-                                    <a href="" class="peers fxw-nw td-n p-20 bdB c-grey-800 cH-blue bgcH-grey-100">
-                                       <div class="peer mR-15"><img class="w-3r bdrs-50p" src="https://randomuser.me/api/portraits/men/3.jpg" alt=""></div>
-                                       <div class="peer peer-greed">
-                                          <div>
-                                             <div class="peers jc-sb fxw-nw mB-5">
-                                                <div class="peer">
-                                                   <p class="fw-500 mB-0">Lee Doe</p>
-                                                </div>
-                                                <div class="peer"><small class="fsz-xs">25 mins ago</small></div>
-                                             </div>
-                                             <span class="c-grey-600 fsz-sm">Want to create your own customized data generator for your app...</span>
-                                          </div>
-                                       </div>
-                                    </a>
-                                 </li>
-                              </ul>
-                           </li>
-                           <li class="pX-20 pY-15 ta-c bdT"><span><a href="" class="c-grey-600 cH-blue fsz-sm td-n">View All Email <i class="fs-xs ti-angle-right mL-10"></i></a></span></li>
-                        </ul>
-                     </li>-->
+                     
                      <li class="dropdown">
                         <a href="" class="dropdown-toggle no-after peers fxw-nw ai-c lh-1" data-toggle="dropdown">
                            <div class="peer mR-10"><img class="w-2r bdrs-50p" src="" alt=""></div>
@@ -305,7 +227,7 @@
                                        <td><?php echo $operatingSystem?></td>
                                     </tr>
                                  </tbody>
-                              </table>
+                              </table><br>
                               <p>Your particulars</p>
                               <table class="table">
                                  <thead>
@@ -330,167 +252,34 @@
                                        <td><?php echo $ProjectID?></td>
                                     </tr>
                                  </tbody>
-                              </table>
-                           </div>
-                        </div>
-                     </div>
-                     <!-- Hide for time being <div class="row">
-                        <div class="col-md-12">
-                           <div class="bgc-white bd bdrs-3 p-20 mB-20">
-                              <h4 class="c-grey-900 mB-20">Table head options</h4>
-                              <p>Similar to tables and dark tables, use the modifier classes <code class="highlighter-rouge">.thead-light</code> or <code class="highlighter-rouge">.thead-dark</code> to make <code class="highlighter-rouge">&lt;thead&gt;</code>s appear light or dark gray.</p>
+                              </table><br>
+                              <p>Your installed software</p>
                               <table class="table">
-                                 <thead class="thead-dark">
-                                    <tr>
-                                       <th scope="col">#</th>
-                                       <th scope="col">First Name</th>
-                                       <th scope="col">Last Name</th>
-                                       <th scope="col">Username</th>
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                    <tr>
-                                       <th scope="row">1</th>
-                                       <td>Mark</td>
-                                       <td>Otto</td>
-                                       <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                       <th scope="row">2</th>
-                                       <td>Jacob</td>
-                                       <td>Thornton</td>
-                                       <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                       <th scope="row">3</th>
-                                       <td>Larry</td>
-                                       <td>the Bird</td>
-                                       <td>@twitter</td>
-                                    </tr>
-                                 </tbody>
-                              </table>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="row">
-                        <div class="col-md-12">
-                           <div class="bgc-white bd bdrs-3 p-20 mB-20">
-                              <h4 class="c-grey-900 mB-20">Striped rows</h4>
-                              <p>Use <code class="highlighter-rouge">.table-striped</code> to add zebra-striping to any table row within the <code class="highlighter-rouge">&lt;tbody&gt;</code>.</p>
-                              <table class="table table-striped">
                                  <thead>
                                     <tr>
-                                       <th scope="col">#</th>
-                                       <th scope="col">First Name</th>
-                                       <th scope="col">Last Name</th>
-                                       <th scope="col">Username</th>
+                                       <th scope="col">Software Title</th>
+                                       <th scope="col">Version</th>
+                                       <th scope="col">Publisher</th>
+                                       <th scope="col">Price Per License</th>
+                                       <th scope="col">Number of License</th>
+                                       <th scope="col">Date of Purchase</th>
                                     </tr>
                                  </thead>
                                  <tbody>
                                     <tr>
-                                       <th scope="row">1</th>
-                                       <td>Mark</td>
-                                       <td>Otto</td>
-                                       <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                       <th scope="row">2</th>
-                                       <td>Jacob</td>
-                                       <td>Thornton</td>
-                                       <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                       <th scope="row">3</th>
-                                       <td>Larry</td>
-                                       <td>the Bird</td>
-                                       <td>@twitter</td>
+                                       <td><?php echo $softwareTitle?></td>
+                                       <td><?php echo $version?></td>
+                                       <td><?php echo $publisher?></td>
+                                       <td><?php echo $pricePerLicense?></td>
+                                       <td><?php echo $NoOfLicense?></td>
+                                       <td><?php echo $datePurchased?></td>
                                     </tr>
                                  </tbody>
                               </table>
                            </div>
                         </div>
                      </div>
-                     <div class="row">
-                        <div class="col-md-12">
-                           <div class="bgc-white bd bdrs-3 p-20 mB-20">
-                              <h4 class="c-grey-900 mB-20">Bordered table</h4>
-                              <p>Add <code class="highlighter-rouge">.table-bordered</code> for borders on all sides of the table and cells.</p>
-                              <table class="table table-bordered">
-                                 <thead>
-                                    <tr>
-                                       <th scope="col">#</th>
-                                       <th scope="col">First Name</th>
-                                       <th scope="col">Last Name</th>
-                                       <th scope="col">Username</th>
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                    <tr>
-                                       <th scope="row">1</th>
-                                       <td>Mark</td>
-                                       <td>Otto</td>
-                                       <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                       <th scope="row">2</th>
-                                       <td>Mark</td>
-                                       <td>Otto</td>
-                                       <td>@TwBootstrap</td>
-                                    </tr>
-                                    <tr>
-                                       <th scope="row">3</th>
-                                       <td>Jacob</td>
-                                       <td>Thornton</td>
-                                       <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                       <th scope="row">4</th>
-                                       <td colspan="2">Larry the Bird</td>
-                                       <td>@twitter</td>
-                                    </tr>
-                                 </tbody>
-                              </table>
-                           </div>
-                        </div>
-                     </div>
-                     <div class="row">
-                        <div class="col-md-12">
-                           <div class="bgc-white bd bdrs-3 p-20">
-                              <h4 class="c-grey-900 mB-20">Hoverable rows</h4>
-                              <p>Add <code class="highlighter-rouge">.table-hover</code> to enable a hover state on table rows within a <code class="highlighter-rouge">&lt;tbody&gt;</code>.</p>
-                              <table class="table table-hover">
-                                 <thead>
-                                    <tr>
-                                       <th scope="col">#</th>
-                                       <th scope="col">First Name</th>
-                                       <th scope="col">Last Name</th>
-                                       <th scope="col">Username</th>
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                    <tr>
-                                       <th scope="row">1</th>
-                                       <td>Mark</td>
-                                       <td>Otto</td>
-                                       <td>@mdo</td>
-                                    </tr>
-                                    <tr>
-                                       <th scope="row">2</th>
-                                       <td>Jacob</td>
-                                       <td>Thornton</td>
-                                       <td>@fat</td>
-                                    </tr>
-                                    <tr>
-                                       <th scope="row">3</th>
-                                       <td colspan="2">Larry the Bird</td>
-                                       <td>@twitter</td>
-                                    </tr>
-                                 </tbody>
-                              </table>
-                           </div>
-                        </div>
-                     </div>
-                  </div>-->
+                    
                </div>
             </main>
             <footer class="bdT ta-c p-30 lh-0 fsz-sm c-grey-600">

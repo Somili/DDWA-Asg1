@@ -1,6 +1,6 @@
 <?php
     session_start();
-    $loginUserID="1";
+    $loginUserID="2";
     $fullName = "";
     $title = "";
     $description = "";
@@ -45,7 +45,7 @@
             }
         }
 
-        $sql = "SELECT * FROM lecturer WHERE lecturer_id=" . $loginUserID;
+        $sql = "SELECT * FROM lecturer WHERE lecturer_id=" . $loginUserID . "";
         $result = $connection->query($sql);
         if ($result->num_rows > 0) {
             if($row = mysqli_fetch_assoc($result)) {
