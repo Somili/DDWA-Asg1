@@ -2,15 +2,6 @@
     session_start();
     $loginUserID="2";
     $fullName = "";
-    $admin_ID = "";
-    $adminOffice = "";
-    $studentID = "";
-    $full_name = "";
-    $contactNo = "";
-    $schoolName = "";
-    $yearEnrolled = "";
-    $serialNo = "";
-    $ProjectID = "";
     if(isset($_SESSION["loginUserID"])){
         $loginUserID = $_SESSION["loginUserID"];
     }
@@ -35,24 +26,137 @@
                 $admin_ID = $row["admin_id"];
                 $fullName = $row["admin_name"];
                 $adminOffice = $row["office"];
-
             }
-        }
-
-        $sql = "SELECT * FROM `student` WHERE 1";
-        $result = $connection->query($sql);
-        if ($result->num_rows > 0) {
+         }
+         $sql = "SELECT * FROM student s, project p, lecturer_project l where l.project_id = s.project_id and s.project_id = p.project_id and l.project_id='1'";
+         $result = $connection->query($sql);
+         if ($result->num_rows > 0) {
             if($row = mysqli_fetch_assoc($result)) {
                $studentID = $row["student_id"];
-               $full_name = $row["full_name"];
-               $contactNo = $row["contact_no"];
-               $schoolName = $row["school_name"];
-               $yearEnrolled = $row["year_enrolled"];
-               $serialNo = $row["serial_number"];
-               $ProjectID = $row["project_id"];
-
+               $title = $row["title"];
+               $description = $row["short_description"];
+               $company = $row["company_name"];
+               $budget = $row["budget"];
+               $startDate = $row["start_date"];
+               $endDate = $row["completion_date"];
+               $lecturerID = $row["lecturer_id"];
             }
-        }
+         }
+         $sql = "SELECT * FROM student s, project p, lecturer_project l where l.project_id = s.project_id and s.project_id = p.project_id and l.project_id='2'";
+         $result = $connection->query($sql);
+         if ($result->num_rows > 0) {
+            if($row = mysqli_fetch_assoc($result)) {
+               $studentID2 = $row["student_id"];
+               $title2 = $row["title"];
+               $description2 = $row["short_description"];
+               $company2 = $row["company_name"];
+               $budget2 = $row["budget"];
+               $startDate2 = $row["start_date"];
+               $endDate2 = $row["completion_date"];
+               $lecturerID2 = $row["lecturer_id"];
+            }
+         }
+         $sql = "SELECT * FROM student s, project p, lecturer_project l where l.project_id = s.project_id and s.project_id = p.project_id and l.project_id='3'";
+         $result = $connection->query($sql);
+         if ($result->num_rows > 0) {
+            if($row = mysqli_fetch_assoc($result)) {
+               $studentID3 = $row["student_id"];
+               $title3 = $row["title"];
+               $description3 = $row["short_description"];
+               $company3 = $row["company_name"];
+               $budget3 = $row["budget"];
+               $startDate3 = $row["start_date"];
+               $endDate3 = $row["completion_date"];
+               $lecturerID3 = $row["lecturer_id"];
+            }
+         }
+         $sql = "SELECT * FROM student s, project p, lecturer_project l where l.project_id = s.project_id and s.project_id = p.project_id and l.project_id='4'";
+         $result = $connection->query($sql);
+         if ($result->num_rows > 0) {
+            if($row = mysqli_fetch_assoc($result)) {
+               $studentID4 = $row["student_id"];
+               $title4 = $row["title"];
+               $description4 = $row["short_description"];
+               $company4 = $row["company_name"];
+               $budget4 = $row["budget"];
+               $startDate4 = $row["start_date"];
+               $endDate4 = $row["completion_date"];
+               $lecturerID4 = $row["lecturer_id"];
+            }
+         }
+         $sql = "SELECT * FROM student s, project p, lecturer_project l where l.project_id = s.project_id and s.project_id = p.project_id and l.project_id='5'";
+         $result = $connection->query($sql);
+         if ($result->num_rows > 0) {
+            if($row = mysqli_fetch_assoc($result)) {
+               $studentID5 = $row["student_id"];
+               $title5 = $row["title"];
+               $description5 = $row["short_description"];
+               $company5 = $row["company_name"];
+               $budget5 = $row["budget"];
+               $startDate5 = $row["start_date"];
+               $endDate5 = $row["completion_date"];
+               $lecturerID5 = $row["lecturer_id"];
+            }
+         }
+         $sql = "SELECT * FROM student s, project p, lecturer_project l where l.project_id = s.project_id and s.project_id = p.project_id and l.project_id='6'";
+         $result = $connection->query($sql);
+         if ($result->num_rows > 0) {
+            if($row = mysqli_fetch_assoc($result)) {
+               $studentID6 = $row["student_id"];
+               $title6 = $row["title"];
+               $description6 = $row["short_description"];
+               $company6 = $row["company_name"];
+               $budget6 = $row["budget"];
+               $startDate6 = $row["start_date"];
+               $endDate6 = $row["completion_date"];
+               $lecturerID6 = $row["lecturer_id"];
+            }
+         }
+         $sql = "SELECT * FROM student s, project p, lecturer_project l where l.project_id = s.project_id and s.project_id = p.project_id and l.project_id='7'";
+         $result = $connection->query($sql);
+         if ($result->num_rows > 0) {
+            if($row = mysqli_fetch_assoc($result)) {
+               $studentID7 = $row["student_id"];
+               $title7 = $row["title"];
+               $description7 = $row["short_description"];
+               $company7 = $row["company_name"];
+               $budget7 = $row["budget"];
+               $startDate7 = $row["start_date"];
+               $endDate7 = $row["completion_date"];
+               $lecturerID7 = $row["lecturer_id"];
+            }
+         }
+
+         $sql = "SELECT * FROM student s, project p, lecturer_project l where l.project_id = s.project_id and s.project_id = p.project_id and l.lecturer_id='8'";
+         $result = $connection->query($sql);
+         if ($result->num_rows > 0) {
+            if($row = mysqli_fetch_assoc($result)) {
+               $studentID8 = $row["student_id"];
+               $title8 = $row["title"];
+               $description8 = $row["short_description"];
+               $company8 = $row["company_name"];
+               $budget8 = $row["budget"];
+               $startDate8 = $row["start_date"];
+               $endDate8 = $row["completion_date"];
+               $lecturerID8 = $row["lecturer_id"];
+            }
+         }
+
+         $sql = "SELECT * FROM student s, project p, lecturer_project l where l.project_id = s.project_id and s.project_id = p.project_id and l.lecturer_id='9'";
+         $result = $connection->query($sql);
+         if ($result->num_rows > 0) {
+            if($row = mysqli_fetch_assoc($result)) {
+               $studentID9 = $row["student_id"];
+               $title9 = $row["title"];
+               $description9 = $row["short_description"];
+               $company9 = $row["company_name"];
+               $budget9 = $row["budget"];
+               $startDate9 = $row["start_date"];
+               $endDate9 = $row["completion_date"];
+               $lecturerID9 = $row["lecturer_id"];
+            }
+         }
+      
     }
 ?>
 
@@ -97,7 +201,7 @@
                   </div>
                </div>
                <ul class="sidebar-menu scrollable pos-r">
-                  <li class="nav-item mT-30 active"><a class="sidebar-link" href="#" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">My Project</span></a></li>
+                  <li class="nav-item mT-30 active"><a class="sidebar-link" href="#" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Home</span></a></li>
                   <li class="nav-item"><a class="sidebar-link" href="/DDWA-Asg1/Admin_StudentInfo.php"><span class="icon-holder"><i class="c-brown-500 ti-email"></i> </span><span class="title">Student Info</span></a></li>
                   <li class="nav-item"><a class="sidebar-link" href="/DDWA-Asg1/AdminLecturerInfo.php"><span class="icon-holder"><i class="c-blue-500 ti-share"></i> </span><span class="title">Lecturer Info</span></a></li>
                </ul>
@@ -153,28 +257,110 @@
                                     </tr>
                                  </tbody>
                               </table><br>
-
+                              <p>Active Projects with Students and Lecturers</p>
                               <table class="table">
                                  <thead>
                                     <tr>
+                                       <th scope="col">Project Title</th>
+                                       <th scope="col">Description</th>
+                                       <th scope="col">Company</th>
+                                       <th scope="col">Budget</th>
+                                       <th scope="col">Start Date</th>
+                                       <th scope="col">End Date</th>
                                        <th scope="col">Student ID</th>
-                                       <th scope="col">Student Name</th>
-                                       <th scope="col">Conact Number</th>
-                                       <th scope="col">School Name</th>
-                                       <th scope="col">Year Enrolled</th>
-                                       <th scope="col">Notebook Serial Number</th>
-                                       <th scope="col">Current Project ID</th>
+                                       <th scope="col">Lecturer ID</th>
                                     </tr>
                                  </thead>
                                  <tbody>
                                     <tr>
+                                       <td><?php echo $title?></td>
+                                       <td><?php echo $description?></td>
+                                       <td><?php echo $company?></td>
+                                       <td><?php echo $budget?></td>
+                                       <td><?php echo $startDate?></td>
+                                       <td><?php echo $endDate?></td>
                                        <td><?php echo $studentID?></td>
-                                       <td><?php echo $full_name?></td>
-                                       <td><?php echo $contactNo?></td>
-                                       <td><?php echo $schoolName?></td>
-                                       <td><?php echo $yearEnrolled?></td>
-                                       <td><?php echo $serialNo?></td>
-                                       <td><?php echo $ProjectID?></td>
+                                       <td><?php echo $lecturerID?></td>
+                                    </tr>
+                                    <tr>
+                                       <td><?php echo $title2?></td>
+                                       <td><?php echo $description2?></td>
+                                       <td><?php echo $company2?></td>
+                                       <td><?php echo $budget2?></td>
+                                       <td><?php echo $startDate2?></td>
+                                       <td><?php echo $endDate2?></td>
+                                       <td><?php echo $studentID2?></td>
+                                       <td><?php echo $lecturerID2?></td>
+                                    </tr>
+                                    <tr>
+                                       <td><?php echo $title3?></td>
+                                       <td><?php echo $description3?></td>
+                                       <td><?php echo $company3?></td>
+                                       <td><?php echo $budget3?></td>
+                                       <td><?php echo $startDate3?></td>
+                                       <td><?php echo $endDate3?></td>
+                                       <td><?php echo $studentID3?></td>
+                                       <td><?php echo $lecturerID3?></td>
+                                    </tr>
+                                    <tr>
+                                       <td><?php echo $title4?></td>
+                                       <td><?php echo $description4?></td>
+                                       <td><?php echo $company4?></td>
+                                       <td><?php echo $budget4?></td>
+                                       <td><?php echo $startDate4?></td>
+                                       <td><?php echo $endDate4?></td>
+                                       <td><?php echo $studentID4?></td>
+                                       <td><?php echo $lecturerID4?></td>
+                                    </tr>
+                                    <tr>
+                                       <td><?php echo $title5?></td>
+                                       <td><?php echo $description5?></td>
+                                       <td><?php echo $company5?></td>
+                                       <td><?php echo $budget5?></td>
+                                       <td><?php echo $startDate5?></td>
+                                       <td><?php echo $endDate5?></td>
+                                       <td><?php echo $studentID5?></td>
+                                       <td><?php echo $lecturerID5?></td>
+                                    </tr>
+                                    <tr>
+                                       <td><?php echo $title6?></td>
+                                       <td><?php echo $description6?></td>
+                                       <td><?php echo $company6?></td>
+                                       <td><?php echo $budget6?></td>
+                                       <td><?php echo $startDate6?></td>
+                                       <td><?php echo $endDate6?></td>
+                                       <td><?php echo $studentID6?></td>
+                                       <td><?php echo $lecturerID6?></td>
+                                    </tr>
+                                    <tr>
+                                       <td><?php echo $title7?></td>
+                                       <td><?php echo $description7?></td>
+                                       <td><?php echo $company7?></td>
+                                       <td><?php echo $budget7?></td>
+                                       <td><?php echo $startDate7?></td>
+                                       <td><?php echo $endDate7?></td>
+                                       <td><?php echo $studentID7?></td>
+                                       <td><?php echo $lecturerID7?></td>
+                                    </tr>
+                                    <tr>
+                                       <td><?php echo $title8?></td>
+                                       <td><?php echo $description8?></td>
+                                       <td><?php echo $company8?></td>
+                                       <td><?php echo $budget8?></td>
+                                       <td><?php echo $startDate8?></td>
+                                       <td><?php echo $endDate8?></td>
+                                       <td><?php echo $studentID8?></td>
+                                       <td><?php echo $lecturerID8?></td>
+                                    </tr>
+                                    <tr>
+                                       <td><?php echo $title9?></td>
+                                       <td><?php echo $description9?></td>
+                                       <td><?php echo $company9?></td>
+                                       <td><?php echo $budget9?></td>
+                                       <td><?php echo $startDate9?></td>
+                                       <td><?php echo $endDate9?></td>
+                                       <td><?php echo $studentID9?></td>
+                                       <td><?php echo $lecturerID9?></td>
                                     </tr>
                                  </tbody>
                               </table><br>

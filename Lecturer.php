@@ -2,18 +2,7 @@
     session_start();
     $loginUserID="2";
     $fullName = "";
-    $title = "";
-    $description = "";
-    $company = "";
-    $budget = "";
-    $startDate = "";
-    $endDate = "";
-    $full_L_name = "";
-    $dateJoined = "";
-    $officeLocation = "";
-    $contactNumber = "";
-    $lecturer_ID = "";
-    $projectID = "";
+
     if(isset($_SESSION["loginUserID"])){
         $loginUserID = $_SESSION["loginUserID"];
     }
@@ -101,7 +90,7 @@
                   </div>
                </div>
                <ul class="sidebar-menu scrollable pos-r">
-                  <li class="nav-item mT-30 active"><a class="sidebar-link" href="#" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">My Project</span></a></li>
+                  <li class="nav-item mT-30 active"><a class="sidebar-link" href="#" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Home</span></a></li>
                   
                </ul>
             </div>

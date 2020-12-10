@@ -2,76 +2,6 @@
     session_start();
     $loginUserID="2";
     $fullName = "";
-
-    $studentID = "";
-    $full_name = "";
-    $contactNo = "";
-    $schoolName = "";
-    $yearEnrolled = "";
-    $serialNo = "";
-    $ProjectID = "";
-
-    $studentID2 = "";
-    $full_name2 = "";
-    $contactNo2 = "";
-    $schoolName2 = "";
-    $yearEnrolled2 = "";
-    $serialNo2 = "";
-    $ProjectID2 = "";
-
-    $studentID3 = "";
-    $full_name3 = "";
-    $contactNo3 = "";
-    $schoolName3 = "";
-    $yearEnrolled3 = "";
-    $serialNo3 = "";
-    $ProjectID3 = "";
-
-    $studentID4 = "";
-    $full_name4 = "";
-    $contactNo4 = "";
-    $schoolName4 = "";
-    $yearEnrolled4 = "";
-    $serialNo4 = "";
-    $ProjectID4 = "";
-
-    $studentID5 = "";
-    $full_name5 = "";
-    $contactNo5 = "";
-    $schoolName5 = "";
-    $yearEnrolled5 = "";
-    $serialNo5 = "";
-    $ProjectID5 = "";
-
-    $studentID6 = "";
-    $full_name6 = "";
-    $contactNo6 = "";
-    $schoolName6 = "";
-    $yearEnrolled6 = "";
-    $serialNo6 = "";
-    $ProjectID6 = "";
-
-    $studentID7 = "";
-    $full_name7 = "";
-    $contactNo7 = "";
-    $schoolName7 = "";
-    $yearEnrolled7 = "";
-    $serialNo7 = "";
-    $ProjectID7 = "";
-
-    $make = "";
-    $model = "";
-    $processor = "";
-    $hardDisk = "";
-    $ram = "";
-    $operatingSystem = "";
-
-    $make2 = "";
-    $model2 = "";
-    $processor2 = "";
-    $hardDisk2 = "";
-    $ram2 = "";
-    $operatingSystem2 = "";
     
     if(isset($_SESSION["loginUserID"])){
         $loginUserID = $_SESSION["loginUserID"];
@@ -200,7 +130,8 @@
                 $processor = $row["processor"];
                 $hardDisk = $row["hard_disk_capacity"];
                 $ram = $row["amount_of_RAM"];
-                $operatingSystem = $row["operating_system"];               
+                $operatingSystem = $row["operating_system"];
+                $serialNo = $row["serial_number"];               
             }
         }
 
@@ -215,8 +146,187 @@
                 $processor2 = $row["processor"];
                 $hardDisk2 = $row["hard_disk_capacity"];
                 $ram2 = $row["amount_of_RAM"];
-                $operatingSystem2 = $row["operating_system"];               
+                $operatingSystem2 = $row["operating_system"];  
+                $serialNo2 = $row["serial_number"];             
             }
+        }
+
+        $sql = "SELECT * FROM student s, notebook n where s.serial_number = n.serial_number and s.student_id='3'";
+        $result = $connection->query($sql);
+        if ($result->num_rows > 0) {
+            if($row = mysqli_fetch_assoc($result)) {
+                $studentID3 = $row["student_id"];
+                $full_name3 = $row["full_name"];
+                $make3 = $row["make"];
+                $model3 = $row["model"];
+                $processor3 = $row["processor"];
+                $hardDisk3 = $row["hard_disk_capacity"];
+                $ram3 = $row["amount_of_RAM"];
+                $operatingSystem3 = $row["operating_system"];
+                $serialNo3 = $row["serial_number"];               
+            }
+        }
+
+        $sql = "SELECT * FROM student s, notebook n where s.serial_number = n.serial_number and s.student_id='4'";
+        $result = $connection->query($sql);
+        if ($result->num_rows > 0) {
+            if($row = mysqli_fetch_assoc($result)) {
+                $studentID4 = $row["student_id"];
+                $full_name4 = $row["full_name"];
+                $make4 = $row["make"];
+                $model4 = $row["model"];
+                $processor4 = $row["processor"];
+                $hardDisk4 = $row["hard_disk_capacity"];
+                $ram4 = $row["amount_of_RAM"];
+                $operatingSystem4 = $row["operating_system"]; 
+                $serialNo4 = $row["serial_number"];              
+            }
+        }
+
+        $sql = "SELECT * FROM student s, notebook n where s.serial_number = n.serial_number and s.student_id='5'";
+        $result = $connection->query($sql);
+        if ($result->num_rows > 0) {
+            if($row = mysqli_fetch_assoc($result)) {
+                $studentID5 = $row["student_id"];
+                $full_name5 = $row["full_name"];
+                $make5 = $row["make"];
+                $model5 = $row["model"];
+                $processor5 = $row["processor"];
+                $hardDisk5 = $row["hard_disk_capacity"];
+                $ram5 = $row["amount_of_RAM"];
+                $operatingSystem5 = $row["operating_system"]; 
+                $serialNo5 = $row["serial_number"];              
+            }
+        }
+
+        $sql = "SELECT * FROM student s, notebook n where s.serial_number = n.serial_number and s.student_id='6'";
+        $result = $connection->query($sql);
+        if ($result->num_rows > 0) {
+            if($row = mysqli_fetch_assoc($result)) {
+                $studentID6 = $row["student_id"];
+                $full_name6 = $row["full_name"];
+                $make6 = $row["make"];
+                $model6 = $row["model"];
+                $processor6 = $row["processor"];
+                $hardDisk6 = $row["hard_disk_capacity"];
+                $ram6 = $row["amount_of_RAM"];
+                $operatingSystem6 = $row["operating_system"];
+                $serialNo6 = $row["serial_number"];               
+            }
+        }
+
+        $sql = "SELECT * FROM student s, notebook n where s.serial_number = n.serial_number and s.student_id='7'";
+        $result = $connection->query($sql);
+        if ($result->num_rows > 0) {
+            if($row = mysqli_fetch_assoc($result)) {
+                $studentID7 = $row["student_id"];
+                $full_name7 = $row["full_name"];
+                $make7 = $row["make"];
+                $model7 = $row["model"];
+                $processor7 = $row["processor"];
+                $hardDisk7 = $row["hard_disk_capacity"];
+                $ram7 = $row["amount_of_RAM"];
+                $operatingSystem7 = $row["operating_system"];     
+                $serialNo7 = $row["serial_number"];          
+            }
+        }
+
+        $sql = "SELECT * FROM software_installed s, software n WHERE s.ID = n.ID and n.ID='1'";
+        $result = $connection->query($sql);
+        if ($result->num_rows > 0) {
+           if($row = mysqli_fetch_assoc($result)) {
+                $softwareTitle = $row["title"];
+                $version = $row["version"];
+                $publisher = $row["publisher"];
+                $pricePerLicense = $row["price_per_license"];
+                $NoOfLicense = $row["no_of_license"];
+                $datePurchased = $row["date_purchase"];
+                $category = $row["category_id"];
+           }
+        }
+
+        $sql = "SELECT * FROM software_installed s, software n WHERE s.ID = n.ID and n.ID='2'";
+        $result = $connection->query($sql);
+        if ($result->num_rows > 0) {
+           if($row = mysqli_fetch_assoc($result)) {
+                $softwareTitle2 = $row["title"];
+                $version2 = $row["version"];
+                $publisher2 = $row["publisher"];
+                $pricePerLicense2 = $row["price_per_license"];
+                $NoOfLicense2 = $row["no_of_license"];
+                $datePurchased2 = $row["date_purchase"];
+                $category2 = $row["category_id"];
+           }
+        }
+
+        $sql = "SELECT * FROM software_installed s, software n WHERE s.ID = n.ID and n.ID='3'";
+        $result = $connection->query($sql);
+        if ($result->num_rows > 0) {
+           if($row = mysqli_fetch_assoc($result)) {
+                $softwareTitle3 = $row["title"];
+                $version3 = $row["version"];
+                $publisher3 = $row["publisher"];
+                $pricePerLicense3 = $row["price_per_license"];
+                $NoOfLicense3 = $row["no_of_license"];
+                $datePurchased3 = $row["date_purchase"];
+                $category3 = $row["category_id"];
+           }
+        }
+
+        $sql = "SELECT * FROM software_installed s, software n WHERE s.ID = n.ID and n.ID='4'";
+        $result = $connection->query($sql);
+        if ($result->num_rows > 0) {
+           if($row = mysqli_fetch_assoc($result)) {
+                $softwareTitle4 = $row["title"];
+                $version4 = $row["version"];
+                $publisher4 = $row["publisher"];
+                $pricePerLicense4 = $row["price_per_license"];
+                $NoOfLicense4 = $row["no_of_license"];
+                $datePurchased4 = $row["date_purchase"];
+                $category4 = $row["category_id"];
+           }
+        }
+
+        $sql = "SELECT * FROM software_installed s, software n WHERE s.ID = n.ID and n.ID='5'";
+        $result = $connection->query($sql);
+        if ($result->num_rows > 0) {
+           if($row = mysqli_fetch_assoc($result)) {
+                $softwareTitle5 = $row["title"];
+                $version5 = $row["version"];
+                $publisher5 = $row["publisher"];
+                $pricePerLicense5 = $row["price_per_license"];
+                $NoOfLicense5 = $row["no_of_license"];
+                $datePurchased5 = $row["date_purchase"];
+                $category5 = $row["category_id"];
+           }
+        }
+
+        $sql = "SELECT * FROM software_installed s, software n WHERE s.ID = n.ID and n.ID='6'";
+        $result = $connection->query($sql);
+        if ($result->num_rows > 0) {
+           if($row = mysqli_fetch_assoc($result)) {
+                $softwareTitle6 = $row["title"];
+                $version6 = $row["version"];
+                $publisher6 = $row["publisher"];
+                $pricePerLicense6 = $row["price_per_license"];
+                $NoOfLicense6 = $row["no_of_license"];
+                $datePurchased6 = $row["date_purchase"];
+                $category6 = $row["category_id"];
+           }
+        }
+
+        $sql = "SELECT * FROM software_installed s, software n WHERE s.ID = n.ID and n.ID='7'";
+        $result = $connection->query($sql);
+        if ($result->num_rows > 0) {
+           if($row = mysqli_fetch_assoc($result)) {
+                $softwareTitle7 = $row["title"];
+                $version7 = $row["version"];
+                $publisher7 = $row["publisher"];
+                $pricePerLicense7 = $row["price_per_license"];
+                $NoOfLicense7 = $row["no_of_license"];
+                $datePurchased7 = $row["date_purchase"];
+                $category7 = $row["category_id"];
+           }
         }
     }
 ?>
@@ -396,6 +506,7 @@
                                        <th scope="col">Hard Disk</th>
                                        <th scope="col">Amount of Ram</th>
                                        <th scope="col">Operating System</th>
+                                       <th scope="col">Serial Number</th>
                                        <th scope="col">Student ID</th>
                                        <th scope="col">Student Name</th>
                                     </tr>
@@ -408,6 +519,7 @@
                                        <td><?php echo $hardDisk?></td>
                                        <td><?php echo $ram?></td>
                                        <td><?php echo $operatingSystem?></td>
+                                       <td><?php echo $serialNo?></td>
                                        <td><?php echo $studentID?></td>
                                        <td><?php echo $full_name?></td>
                                     </tr>
@@ -419,10 +531,156 @@
                                        <td><?php echo $hardDisk2?></td>
                                        <td><?php echo $ram2?></td>
                                        <td><?php echo $operatingSystem2?></td>
+                                       <td><?php echo $serialNo2?></td>
                                        <td><?php echo $studentID2?></td>
                                        <td><?php echo $full_name2?></td>
                                     </tr>
+
+                                    <tr>
+                                       <td><?php echo $make3?></td>
+                                       <td><?php echo $model3?></td>
+                                       <td><?php echo $processor3?></td>
+                                       <td><?php echo $hardDisk3?></td>
+                                       <td><?php echo $ram3?></td>
+                                       <td><?php echo $operatingSystem3?></td>
+                                       <td><?php echo $serialNo3?></td>
+                                       <td><?php echo $studentID3?></td>
+                                       <td><?php echo $full_name3?></td>
+                                    </tr>
+
+                                    <tr>
+                                       <td><?php echo $make4?></td>
+                                       <td><?php echo $model4?></td>
+                                       <td><?php echo $processor4?></td>
+                                       <td><?php echo $hardDisk4?></td>
+                                       <td><?php echo $ram4?></td>
+                                       <td><?php echo $operatingSystem4?></td>
+                                       <td><?php echo $serialNo4?></td>
+                                       <td><?php echo $studentID4?></td>
+                                       <td><?php echo $full_name4?></td>
+                                    </tr>
+
+                                    <tr>
+                                       <td><?php echo $make5?></td>
+                                       <td><?php echo $model5?></td>
+                                       <td><?php echo $processor5?></td>
+                                       <td><?php echo $hardDisk5?></td>
+                                       <td><?php echo $ram5?></td>
+                                       <td><?php echo $operatingSystem5?></td>
+                                       <td><?php echo $serialNo5?></td>
+                                       <td><?php echo $studentID5?></td>
+                                       <td><?php echo $full_name5?></td>
+                                    </tr>
+
+                                    <tr>
+                                       <td><?php echo $make6?></td>
+                                       <td><?php echo $model6?></td>
+                                       <td><?php echo $processor6?></td>
+                                       <td><?php echo $hardDisk6?></td>
+                                       <td><?php echo $ram6?></td>
+                                       <td><?php echo $operatingSystem6?></td>
+                                       <td><?php echo $serialNo6?></td>
+                                       <td><?php echo $studentID6?></td>
+                                       <td><?php echo $full_name6?></td>
+                                    </tr>
+
+                                    <tr>
+                                       <td><?php echo $make7?></td>
+                                       <td><?php echo $model7?></td>
+                                       <td><?php echo $processor7?></td>
+                                       <td><?php echo $hardDisk7?></td>
+                                       <td><?php echo $ram7?></td>
+                                       <td><?php echo $operatingSystem7?></td>
+                                       <td><?php echo $serialNo7?></td>
+                                       <td><?php echo $studentID7?></td>
+                                       <td><?php echo $full_name7?></td>                
+                                    </tr>
                                  </tbody>
+                              </table><br>
+                              <p>Student Installed Softwares</p>
+                              <table class="table">
+                                 <thead>
+                                    <tr>
+                                       <th scope="col">Software Title</th>
+                                       <th scope="col">Version</th>
+                                       <th scope="col">Publisher</th>
+                                       <th scope="col">Price Per License</th>
+                                       <th scope="col">Number of License</th>
+                                       <th scope="col">Date of Purchase</th>
+                                       <th scope="col">Category</th>
+                                    </tr>
+                                 </thead>
+                                 <tbody>
+                                    <tr>
+                                       <td><?php echo $softwareTitle?></td>
+                                       <td><?php echo $version?></td>
+                                       <td><?php echo $publisher?></td>
+                                       <td><?php echo $pricePerLicense?></td>
+                                       <td><?php echo $NoOfLicense?></td>
+                                       <td><?php echo $datePurchased?></td>
+                                       <td><?php echo $category?></td>
+                                    </tr?>
+
+                                    <tr>
+                                       <td><?php echo $softwareTitle2?></td>
+                                       <td><?php echo $version2?></td>
+                                       <td><?php echo $publisher2?></td>
+                                       <td><?php echo $pricePerLicense2?></td>
+                                       <td><?php echo $NoOfLicense2?></td>
+                                       <td><?php echo $datePurchased2?></td>
+                                       <td><?php echo $category2?></td>
+                                    </tr?>
+
+                                    <tr>
+                                       <td><?php echo $softwareTitle3?></td>
+                                       <td><?php echo $version3?></td>
+                                       <td><?php echo $publisher3?></td>
+                                       <td><?php echo $pricePerLicense3?></td>
+                                       <td><?php echo $NoOfLicense3?></td>
+                                       <td><?php echo $datePurchased3?></td>
+                                       <td><?php echo $category3?></td>
+                                    </tr?>
+
+                                    <tr>
+                                       <td><?php echo $softwareTitle4?></td>
+                                       <td><?php echo $version4?></td>
+                                       <td><?php echo $publisher4?></td>
+                                       <td><?php echo $pricePerLicense4?></td>
+                                       <td><?php echo $NoOfLicense4?></td>
+                                       <td><?php echo $datePurchased4?></td>
+                                       <td><?php echo $category4?></td>
+                                    </tr?>
+
+                                    <tr>
+                                       <td><?php echo $softwareTitle5?></td>
+                                       <td><?php echo $version5?></td>
+                                       <td><?php echo $publisher5?></td>
+                                       <td><?php echo $pricePerLicense5?></td>
+                                       <td><?php echo $NoOfLicense5?></td>
+                                       <td><?php echo $datePurchased5?></td>
+                                       <td><?php echo $category5?></td>
+                                    </tr?>
+
+                                    <tr>
+                                       <td><?php echo $softwareTitle6?></td>
+                                       <td><?php echo $version6?></td>
+                                       <td><?php echo $publisher6?></td>
+                                       <td><?php echo $pricePerLicense6?></td>
+                                       <td><?php echo $NoOfLicense6?></td>
+                                       <td><?php echo $datePurchased6?></td>
+                                       <td><?php echo $category6?></td>
+                                    </tr?>
+
+                                    <tr>
+                                       <td><?php echo $softwareTitle7?></td>
+                                       <td><?php echo $version7?></td>
+                                       <td><?php echo $publisher7?></td>
+                                       <td><?php echo $pricePerLicense7?></td>
+                                       <td><?php echo $NoOfLicense7?></td>
+                                       <td><?php echo $datePurchased7?></td>
+                                       <td><?php echo $category7?></td>
+                                    </tr?>
+                                    </tbody>
                               </table><br>
                            </div>
                         </div>

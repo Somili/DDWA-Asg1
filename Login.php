@@ -281,7 +281,8 @@ input[type=text]:placeholder {
 
     <!-- Icon -->
     <div class="fadeIn first">
-    <h1>Login</h1>
+    <br>
+    <h3>Login</h3><br>
     
     </div>
 

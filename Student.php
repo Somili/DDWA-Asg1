@@ -2,31 +2,7 @@
     session_start();
     $loginUserID="1";
     $fullName = "Error";
-    $title = "";
-    $description = "";
-    $company = "";
-    $budget = "";
-    $startDate = "";
-    $endDate = "";
-    $make = "";
-    $model = "";
-    $processor = "";
-    $hardDisk = "";
-    $ram = "";
-    $operatingSystem = "";
-    $studentID = "";
-    $full_name = "";
-    $contactNo = "";
-    $schoolName = "";
-    $yearEnrolled = "";
-    $serialNo = "";
-    $ProjectID = "";
-    $softwareTitle = "";
-    $version = "";
-    $publisher = "";
-    $pricePerLicense = "";
-    $NoOfLicense = "";
-    $datePurchased = "";
+
     if(isset($_SESSION["loginUserID"])){
         $loginUserID = $_SESSION["loginUserID"];
     }
@@ -95,6 +71,7 @@
               $pricePerLicense = $row["price_per_license"];
               $NoOfLicense = $row["no_of_license"];
               $datePurchased = $row["date_purchase"];
+              $category = $row["category_id"];
          }
       }
    }
@@ -142,7 +119,7 @@
                   </div>
                </div>
                <ul class="sidebar-menu scrollable pos-r">
-                  <li class="nav-item mT-30 active"><a class="sidebar-link" href="#" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">My Project</span></a></li>
+                  <li class="nav-item mT-30 active"><a class="sidebar-link" href="#" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Home</span></a></li>
                   
                </ul>
             </div>
@@ -184,6 +161,7 @@
                               <table class="table">
                                  <thead>
                                     <tr>
+                                       <th scope="col">Your Name</th>
                                        <th scope="col">Project Title</th>
                                        <th scope="col">Short Description</th>
                                        <th scope="col">Company</th>
@@ -194,6 +172,7 @@
                                  </thead>
                                  <tbody>
                                     <tr>
+                                       <td><?php echo $fullName?></td>
                                        <td><?php echo $title?></td>
                                        <td><?php echo $description?></td>
                                        <td><?php echo $company?></td>
@@ -261,6 +240,7 @@
                                        <th scope="col">Price Per License</th>
                                        <th scope="col">Number of License</th>
                                        <th scope="col">Date of Purchase</th>
+                                       <th scope="col">Category</th>
                                     </tr>
                                  </thead>
                                  <tbody>
@@ -271,6 +251,7 @@
                                        <td><?php echo $pricePerLicense?></td>
                                        <td><?php echo $NoOfLicense?></td>
                                        <td><?php echo $datePurchased?></td>
+                                       <td><?php echo $category?></td>
                                     </tr>
                                  </tbody>
                               </table>
