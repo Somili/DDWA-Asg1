@@ -2,27 +2,30 @@
     session_start();
     $loginUserID="2";
     $fullName = "";
-    $studentID_1 = "";
-    $full_name_1 = "";
-    $contactNo_1 = "";
-    $schoolName_1 = "";
-    $yearEnrolled_1 = "";
-    $serialNo_1 = "";
-    $ProjectID_1  = "";
-    $studentID_2 = "";
-    $full_name_2 = "";
-    $contactNo_2 = "";
-    $schoolName_2 = "";
-    $yearEnrolled_2 = "";
-    $serialNo_2 = "";
-    $ProjectID_2  = "";
-    $studentID_3 = "";
-    $full_name_3 = "";
-    $contactNo_3 = "";
-    $schoolName_3 = "";
-    $yearEnrolled_3 = "";
-    $serialNo_3 = "";
-    $ProjectID_3  = "";
+
+    $studentID = "";
+    $full_name = "";
+    $contactNo = "";
+    $schoolName = "";
+    $yearEnrolled = "";
+    $serialNo = "";
+    $ProjectID = "";
+
+    $studentID2 = "";
+    $full_name2 = "";
+    $contactNo2 = "";
+    $schoolName2 = "";
+    $yearEnrolled2 = "";
+    $serialNo2 = "";
+    $ProjectID2 = "";
+
+    $studentID3 = "";
+    $full_name3 = "";
+    $contactNo3 = "";
+    $schoolName3 = "";
+    $yearEnrolled3 = "";
+    $serialNo3 = "";
+    $ProjectID3 = "";
     
     if(isset($_SESSION["loginUserID"])){
         $loginUserID = $_SESSION["loginUserID"];
@@ -45,37 +48,41 @@
         $result = $connection->query($sql);
         if ($result->num_rows > 0) {
             if($row = mysqli_fetch_assoc($result)) {
-               $studentID_1 = $row["student_id"];
-               $full_name_1 = $row["full_name"];
-               $contactNo_1 = $row["contact_no"];
-               $schoolName_1 = $row["school_name"];
-               $yearEnrolled_1 = $row["year_enrolled"];
-               $serialNo_1 = $row["serial_number"];
-               $ProjectID_1 = $row["project_id"];
+               $studentID = $row["student_id"];
+               $full_name = $row["full_name"];
+               $contactNo = $row["contact_no"];
+               $schoolName = $row["school_name"];
+               $yearEnrolled = $row["year_enrolled"];
+               $serialNo = $row["serial_number"];
+               $ProjectID = $row["project_id"];
+            }
+        }
 
         $sql = "SELECT * FROM `student` WHERE student_id='2'";
         $result = $connection->query($sql);
         if ($result->num_rows > 0) {
             if($row = mysqli_fetch_assoc($result)) {
-               $studentID_2 = $row["student_id"];
-               $full_name_2 = $row["full_name"];
-               $contactNo_2 = $row["contact_no"];
-               $schoolName_2 = $row["school_name"];
-               $yearEnrolled_2 = $row["year_enrolled"];
-               $serialNo_2 = $row["serial_number"];
-               $ProjectID_2 = $row["project_id"];  
-               
-        $sql = "SELECT * FROM `student` WHERE student_id='3'";
+               $studentID2 = $row["student_id"];
+               $full_name2 = $row["full_name"];
+               $contactNo2 = $row["contact_no"];
+               $schoolName2 = $row["school_name"];
+               $yearEnrolled2 = $row["year_enrolled"];
+               $serialNo2 = $row["serial_number"];
+               $ProjectID2 = $row["project_id"];
+            }
+        }
+
+        $sql = "SELECT * FROM `student` WHERE student_id='2'";
         $result = $connection->query($sql);
         if ($result->num_rows > 0) {
             if($row = mysqli_fetch_assoc($result)) {
-               $studentID_3 = $row["student_id"];
-               $full_name_3 = $row["full_name"];
-               $contactNo_3 = $row["contact_no"];
-               $schoolName_3 = $row["school_name"];
-               $yearEnrolled_3 = $row["year_enrolled"];
-               $serialNo_3 = $row["serial_number"];
-               $ProjectID_3 = $row["project_id"];
+               $studentID3 = $row["student_id"];
+               $full_name3 = $row["full_name"];
+               $contactNo3 = $row["contact_no"];
+               $schoolName3 = $row["school_name"];
+               $yearEnrolled3 = $row["year_enrolled"];
+               $serialNo3 = $row["serial_number"];
+               $ProjectID3 = $row["project_id"];
             }
         }
     }
@@ -123,7 +130,7 @@
                </div>
                <ul class="sidebar-menu scrollable pos-r">
                   <li class="nav-item mT-30 active"><a class="sidebar-link" href="#" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">My Project</span></a></li>
-                  <li class="nav-item"><a class="sidebar-link" href="/DDWA-Asg1/AdminStudentInfo.php"><span class="icon-holder"><i class="c-brown-500 ti-email"></i> </span><span class="title">Student Info</span></a></li>
+                  <li class="nav-item"><a class="sidebar-link" href="/DDWA-Asg1/Admin_StudentInfo.php"><span class="icon-holder"><i class="c-brown-500 ti-email"></i> </span><span class="title">Student Info</span></a></li>
                   <li class="nav-item"><a class="sidebar-link" href="/DDWA-Asg1/AdminLecturerInfo.php"><span class="icon-holder"><i class="c-blue-500 ti-share"></i> </span><span class="title">Lecturer Info</span></a></li>
                </ul>
             </div>
@@ -160,8 +167,8 @@
                      <div class="row">
                         <div class="col-md-12">
                            <div class="bgc-white bd bdrs-3 p-20 mB-20">
-                              <h4 class="c-grey-900 mB-20">Admin Particulars</h4>
-                              <p>Student Information</p>
+                              <h4 class="c-grey-900 mB-20">Student Information</h4>
+                              <p>Students</p>
                               <table class="table">
                                  <thead>
                                     <tr>
@@ -176,13 +183,13 @@
                                  </thead>
                                  <tbody>
                                     <tr>
-                                       <td><?php echo $studentID_1?></td>
-                                       <td><?php echo $full_name_1?></td>
-                                       <td><?php echo $contactNo_1?></td>
-                                       <td><?php echo $schoolName_1?></td>
-                                       <td><?php echo $yearEnrolled_1?></td>
-                                       <td><?php echo $serialNo_1?></td>
-                                       <td><?php echo $ProjectID_1?></td>
+                                       <td><?php echo $studentID?></td>
+                                       <td><?php echo $full_name?></td>
+                                       <td><?php echo $contactNo?></td>
+                                       <td><?php echo $schoolName?></td>
+                                       <td><?php echo $yearEnrolled?></td>
+                                       <td><?php echo $serialNo?></td>
+                                       <td><?php echo $ProjectID?></td>
                                     </tr>
                                  </tbody>
                               </table>
@@ -201,17 +208,17 @@
                                  </thead>
                                  <tbody>
                                     <tr>
-                                       <td><?php echo $studentID_2?></td>
-                                       <td><?php echo $full_name_2?></td>
-                                       <td><?php echo $contactNo_2?></td>
-                                       <td><?php echo $schoolName_2?></td>
-                                       <td><?php echo $yearEnrolled_2?></td>
-                                       <td><?php echo $serialNo_2?></td>
-                                       <td><?php echo $ProjectID_2?></td>
+                                       <td><?php echo $studentID2?></td>
+                                       <td><?php echo $full_name2?></td>
+                                       <td><?php echo $contactNo2?></td>
+                                       <td><?php echo $schoolName2?></td>
+                                       <td><?php echo $yearEnrolled2?></td>
+                                       <td><?php echo $serialNo2?></td>
+                                       <td><?php echo $ProjectID2?></td>
                                     </tr>
                                  </tbody>
                               </table>
-
+                              
                               <table class="table">
                                  <thead>
                                     <tr>
@@ -226,13 +233,13 @@
                                  </thead>
                                  <tbody>
                                     <tr>
-                                       <td><?php echo $studentID_3?></td>
-                                       <td><?php echo $full_name_3?></td>
-                                       <td><?php echo $contactNo_3?></td>
-                                       <td><?php echo $schoolName_3?></td>
-                                       <td><?php echo $yearEnrolled_3?></td>
-                                       <td><?php echo $serialNo_3?></td>
-                                       <td><?php echo $ProjectID_3?></td>
+                                       <td><?php echo $studentID3?></td>
+                                       <td><?php echo $full_name3?></td>
+                                       <td><?php echo $contactNo3?></td>
+                                       <td><?php echo $schoolName3?></td>
+                                       <td><?php echo $yearEnrolled3?></td>
+                                       <td><?php echo $serialNo3?></td>
+                                       <td><?php echo $ProjectID3?></td>
                                     </tr>
                                  </tbody>
                               </table>
@@ -249,5 +256,5 @@
          </div>
       </div>
       <script type="text/javascript" src="JS/vendor.js"></script><script type="text/javascript" src="JS/bundle.js"></script>
-    </body>
+   </body>
 </html>

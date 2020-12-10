@@ -59,7 +59,7 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>Lecturer</title>
+      <title>Admin</title>
       <style>#loader{transition:all .3s ease-in-out;opacity:1;visibility:visible;position:fixed;height:100vh;width:100%;background:#fff;z-index:90000}#loader.fadeOut{opacity:0;visibility:hidden}.spinner{width:40px;height:40px;position:absolute;top:calc(50% - 20px);left:calc(50% - 20px);background-color:#333;border-radius:100%;-webkit-animation:sk-scaleout 1s infinite ease-in-out;animation:sk-scaleout 1s infinite ease-in-out}@-webkit-keyframes sk-scaleout{0%{-webkit-transform:scale(0)}100%{-webkit-transform:scale(1);opacity:0}}@keyframes sk-scaleout{0%{-webkit-transform:scale(0);transform:scale(0)}100%{-webkit-transform:scale(1);transform:scale(1);opacity:0}}</style>
       <link href="https://colorlib.com/polygon/adminator/style.css" rel="stylesheet">
    </head>
@@ -98,9 +98,8 @@
                </div>
                <ul class="sidebar-menu scrollable pos-r">
                   <li class="nav-item mT-30 active"><a class="sidebar-link" href="#" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">My Project</span></a></li>
-                  <li class="nav-item"><a class="sidebar-link" href="#"><span class="icon-holder"><i class="c-brown-500 ti-email"></i> </span><span class="title">My Notebook</span></a></li>
-                  <li class="nav-item"><a class="sidebar-link" href="#"><span class="icon-holder"><i class="c-blue-500 ti-share"></i> </span><span class="title">My Particulars</span></a></li>
-                  <li class="nav-item"><a class="sidebar-link" href="#"><span class="icon-holder"><i class="c-deep-orange-500 ti-calendar"></i> </span><span class="title">My Settings</span></a></li>
+                  <li class="nav-item"><a class="sidebar-link" href="/DDWA-Asg1/Admin_StudentInfo.php"><span class="icon-holder"><i class="c-brown-500 ti-email"></i> </span><span class="title">Student Info</span></a></li>
+                  <li class="nav-item"><a class="sidebar-link" href="/DDWA-Asg1/AdminLecturerInfo.php"><span class="icon-holder"><i class="c-blue-500 ti-share"></i> </span><span class="title">Lecturer Info</span></a></li>
                </ul>
             </div>
          </div>

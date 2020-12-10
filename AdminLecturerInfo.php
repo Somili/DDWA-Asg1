@@ -2,28 +2,15 @@
     session_start();
     $loginUserID="2";
     $fullName = "";
-    $studentID_1 = "";
-    $full_name_1 = "";
-    $contactNo_1 = "";
-    $schoolName_1 = "";
-    $yearEnrolled_1 = "";
-    $serialNo_1 = "";
-    $ProjectID_1  = "";
-    $studentID_2 = "";
-    $full_name_2 = "";
-    $contactNo_2 = "";
-    $schoolName_2 = "";
-    $yearEnrolled_2 = "";
-    $serialNo_2 = "";
-    $ProjectID_2  = "";
-    $studentID_3 = "";
-    $full_name_3 = "";
-    $contactNo_3 = "";
-    $schoolName_3 = "";
-    $yearEnrolled_3 = "";
-    $serialNo_3 = "";
-    $ProjectID_3  = "";
-    
+    $admin_ID = "";
+    $adminOffice = "";
+    $studentID = "";
+    $full_name = "";
+    $contactNo = "";
+    $schoolName = "";
+    $yearEnrolled = "";
+    $serialNo = "";
+    $ProjectID = "";
     if(isset($_SESSION["loginUserID"])){
         $loginUserID = $_SESSION["loginUserID"];
     }
@@ -41,41 +28,29 @@
         );
     }
     else {
-        $sql = "SELECT * FROM `student` WHERE student_id='1'";
+        $sql = "SELECT * FROM `admin` WHERE admin_id=" . $loginUserID . "";
         $result = $connection->query($sql);
         if ($result->num_rows > 0) {
             if($row = mysqli_fetch_assoc($result)) {
-               $studentID_1 = $row["student_id"];
-               $full_name_1 = $row["full_name"];
-               $contactNo_1 = $row["contact_no"];
-               $schoolName_1 = $row["school_name"];
-               $yearEnrolled_1 = $row["year_enrolled"];
-               $serialNo_1 = $row["serial_number"];
-               $ProjectID_1 = $row["project_id"];
+                $admin_ID = $row["admin_id"];
+                $fullName = $row["admin_name"];
+                $adminOffice = $row["office"];
 
-        $sql = "SELECT * FROM `student` WHERE student_id='2'";
+            }
+        }
+
+        $sql = "SELECT * FROM `student` WHERE 1";
         $result = $connection->query($sql);
         if ($result->num_rows > 0) {
             if($row = mysqli_fetch_assoc($result)) {
-               $studentID_2 = $row["student_id"];
-               $full_name_2 = $row["full_name"];
-               $contactNo_2 = $row["contact_no"];
-               $schoolName_2 = $row["school_name"];
-               $yearEnrolled_2 = $row["year_enrolled"];
-               $serialNo_2 = $row["serial_number"];
-               $ProjectID_2 = $row["project_id"];  
-               
-        $sql = "SELECT * FROM `student` WHERE student_id='3'";
-        $result = $connection->query($sql);
-        if ($result->num_rows > 0) {
-            if($row = mysqli_fetch_assoc($result)) {
-               $studentID_3 = $row["student_id"];
-               $full_name_3 = $row["full_name"];
-               $contactNo_3 = $row["contact_no"];
-               $schoolName_3 = $row["school_name"];
-               $yearEnrolled_3 = $row["year_enrolled"];
-               $serialNo_3 = $row["serial_number"];
-               $ProjectID_3 = $row["project_id"];
+               $studentID = $row["student_id"];
+               $full_name = $row["full_name"];
+               $contactNo = $row["contact_no"];
+               $schoolName = $row["school_name"];
+               $yearEnrolled = $row["year_enrolled"];
+               $serialNo = $row["serial_number"];
+               $ProjectID = $row["project_id"];
+
             }
         }
     }
@@ -161,31 +136,23 @@
                         <div class="col-md-12">
                            <div class="bgc-white bd bdrs-3 p-20 mB-20">
                               <h4 class="c-grey-900 mB-20">Admin Particulars</h4>
-                              <p>Student Information</p>
+                              <p>Your particulars</p>
                               <table class="table">
                                  <thead>
                                     <tr>
-                                       <th scope="col">Student ID</th>
-                                       <th scope="col">Student Name</th>
-                                       <th scope="col">Conact Number</th>
-                                       <th scope="col">School Name</th>
-                                       <th scope="col">Year Enrolled</th>
-                                       <th scope="col">Notebook Serial Number</th>
-                                       <th scope="col">Current Project ID</th>
+                                       <th scope="col">Admin ID</th>
+                                       <th scope="col">Admin Name</th>
+                                       <th scope="col">Your Office</th>
                                     </tr>
                                  </thead>
                                  <tbody>
                                     <tr>
-                                       <td><?php echo $studentID_1?></td>
-                                       <td><?php echo $full_name_1?></td>
-                                       <td><?php echo $contactNo_1?></td>
-                                       <td><?php echo $schoolName_1?></td>
-                                       <td><?php echo $yearEnrolled_1?></td>
-                                       <td><?php echo $serialNo_1?></td>
-                                       <td><?php echo $ProjectID_1?></td>
+                                       <td><?php echo $admin_ID?></td>
+                                       <td><?php echo $fullName?></td>
+                                       <td><?php echo $adminOffice?></td>
                                     </tr>
                                  </tbody>
-                              </table>
+                              </table><br>
 
                               <table class="table">
                                  <thead>
@@ -201,41 +168,16 @@
                                  </thead>
                                  <tbody>
                                     <tr>
-                                       <td><?php echo $studentID_2?></td>
-                                       <td><?php echo $full_name_2?></td>
-                                       <td><?php echo $contactNo_2?></td>
-                                       <td><?php echo $schoolName_2?></td>
-                                       <td><?php echo $yearEnrolled_2?></td>
-                                       <td><?php echo $serialNo_2?></td>
-                                       <td><?php echo $ProjectID_2?></td>
+                                       <td><?php echo $studentID?></td>
+                                       <td><?php echo $full_name?></td>
+                                       <td><?php echo $contactNo?></td>
+                                       <td><?php echo $schoolName?></td>
+                                       <td><?php echo $yearEnrolled?></td>
+                                       <td><?php echo $serialNo?></td>
+                                       <td><?php echo $ProjectID?></td>
                                     </tr>
                                  </tbody>
-                              </table>
-
-                              <table class="table">
-                                 <thead>
-                                    <tr>
-                                       <th scope="col">Student ID</th>
-                                       <th scope="col">Student Name</th>
-                                       <th scope="col">Conact Number</th>
-                                       <th scope="col">School Name</th>
-                                       <th scope="col">Year Enrolled</th>
-                                       <th scope="col">Notebook Serial Number</th>
-                                       <th scope="col">Current Project ID</th>
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                    <tr>
-                                       <td><?php echo $studentID_3?></td>
-                                       <td><?php echo $full_name_3?></td>
-                                       <td><?php echo $contactNo_3?></td>
-                                       <td><?php echo $schoolName_3?></td>
-                                       <td><?php echo $yearEnrolled_3?></td>
-                                       <td><?php echo $serialNo_3?></td>
-                                       <td><?php echo $ProjectID_3?></td>
-                                    </tr>
-                                 </tbody>
-                              </table>
+                              </table><br>
                            </div>
                         </div>
                      </div>
@@ -249,5 +191,5 @@
          </div>
       </div>
       <script type="text/javascript" src="JS/vendor.js"></script><script type="text/javascript" src="JS/bundle.js"></script>
-    </body>
+   </body>
 </html>
