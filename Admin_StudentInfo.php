@@ -20,6 +20,13 @@
         );
     }
     else {
+      $sql = "SELECT * FROM `admin` WHERE admin_id=" . $loginUserID . "";
+      $result = $connection->query($sql);
+      if ($result->num_rows > 0) {
+          if($row = mysqli_fetch_assoc($result)) {
+            $fullName = $row["admin_name"];
+        }
+     }
         $sql = "SELECT * FROM `student` WHERE student_id='1'";
         $result = $connection->query($sql);
         if ($result->num_rows > 0) {
@@ -372,7 +379,7 @@
                   </div>
                </div>
                <ul class="sidebar-menu scrollable pos-r">
-                  <li class="nav-item mT-30 active"><a class="sidebar-link" href="/DDWA-Asg1/Admin.php" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">My Project</span></a></li>
+                  <li class="nav-item mT-30 active"><a class="sidebar-link" href="/DDWA-Asg1/Admin.php" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Home</span></a></li>
                   <li class="nav-item"><a class="sidebar-link" href="/DDWA-Asg1/Admin_StudentInfo.php"><span class="icon-holder"><i class="c-brown-500 ti-email"></i> </span><span class="title">Student Info</span></a></li>
                   <li class="nav-item"><a class="sidebar-link" href="/DDWA-Asg1/AdminLecturerInfo.php"><span class="icon-holder"><i class="c-blue-500 ti-share"></i> </span><span class="title">Lecturer Info</span></a></li>
                </ul>
@@ -393,11 +400,7 @@
                            <div class="peer"><span class="fsz-sm c-grey-900"><?php echo $fullName?></span></div>
                         </a>
                         <ul class="dropdown-menu fsz-sm">
-                           <li><a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-settings mR-10"></i> <span>Setting</span></a></li>
-                           <li><a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-user mR-10"></i> <span>Profile</span></a></li>
-                           <li><a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-email mR-10"></i> <span>Messages</span></a></li>
-                           <li role="separator" class="divider"></li>
-                           <li><a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-power-off mR-10"></i> <span>Logout</span></a></li>
+                           <li><a href="/DDWA-Asg1/Login.php" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-power-off mR-10"></i> <span>Log Out</span></a></li>
                         </ul>
                      </li>
                   </ul>
@@ -411,7 +414,7 @@
                         <div class="col-md-12">
                            <div class="bgc-white bd bdrs-3 p-20 mB-20">
                               <h4 class="c-grey-900 mB-20">Student Information</h4>
-                              <p>Students</p>
+                              <p>Student Particulars</p>
                               <table class="table">
                                  <thead>
                                     <tr>

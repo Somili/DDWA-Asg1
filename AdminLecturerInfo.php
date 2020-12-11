@@ -2,15 +2,7 @@
     session_start();
     $loginUserID="2";
     $fullName = "";
-    $admin_ID = "";
-    $adminOffice = "";
-    $studentID = "";
-    $full_name = "";
-    $contactNo = "";
-    $schoolName = "";
-    $yearEnrolled = "";
-    $serialNo = "";
-    $ProjectID = "";
+
     if(isset($_SESSION["loginUserID"])){
         $loginUserID = $_SESSION["loginUserID"];
     }
@@ -28,28 +20,136 @@
         );
     }
     else {
-        $sql = "SELECT * FROM `admin` WHERE admin_id=" . $loginUserID . "";
+      $sql = "SELECT * FROM `admin` WHERE admin_id=" . $loginUserID . "";
+      $result = $connection->query($sql);
+      if ($result->num_rows > 0) {
+          if($row = mysqli_fetch_assoc($result)) {
+            $fullName = $row["admin_name"];
+        }
+     }
+        $sql = "SELECT * FROM `lecturer` WHERE lecturer_id='1'";
         $result = $connection->query($sql);
         if ($result->num_rows > 0) {
             if($row = mysqli_fetch_assoc($result)) {
-                $admin_ID = $row["admin_id"];
-                $fullName = $row["admin_name"];
-                $adminOffice = $row["office"];
+               $studentID = $row["lecturer_id"];
+               $full_name = $row["full_name"];
+               $contactNo = $row["contact_no"];
+               $password = $row["password"];
+               $officeLocation = $row["office_location"];
+               $dateJoined = $row["date_joined"];
+               $ProjectID = $row["project_id"];
 
             }
         }
-
-        $sql = "SELECT * FROM `student` WHERE 1";
+        $sql = "SELECT * FROM `lecturer` WHERE lecturer_id='1'";
         $result = $connection->query($sql);
         if ($result->num_rows > 0) {
             if($row = mysqli_fetch_assoc($result)) {
-               $studentID = $row["student_id"];
-               $full_name = $row["full_name"];
-               $contactNo = $row["contact_no"];
-               $schoolName = $row["school_name"];
-               $yearEnrolled = $row["year_enrolled"];
-               $serialNo = $row["serial_number"];
-               $ProjectID = $row["project_id"];
+               $studentID2 = $row["lecturer_id"];
+               $full_name2 = $row["full_name"];
+               $contactNo2 = $row["contact_no"];
+               $password2 = $row["password"];
+               $officeLocation2 = $row["office_location"];
+               $dateJoined2 = $row["date_joined"];
+               $ProjectID2 = $row["project_id"];
+
+            }
+        }
+        $sql = "SELECT * FROM `lecturer` WHERE lecturer_id='3'";
+        $result = $connection->query($sql);
+        if ($result->num_rows > 0) {
+            if($row = mysqli_fetch_assoc($result)) {
+               $studentID3 = $row["lecturer_id"];
+               $full_name3 = $row["full_name"];
+               $contactNo3 = $row["contact_no"];
+               $password3 = $row["password"];
+               $officeLocation3 = $row["office_location"];
+               $dateJoined3 = $row["date_joined"];
+               $ProjectID3 = $row["project_id"];
+
+            }
+        }
+        $sql = "SELECT * FROM `lecturer` WHERE lecturer_id='4'";
+        $result = $connection->query($sql);
+        if ($result->num_rows > 0) {
+            if($row = mysqli_fetch_assoc($result)) {
+               $studentID4 = $row["lecturer_id"];
+               $full_name4 = $row["full_name"];
+               $contactNo4 = $row["contact_no"];
+               $password4 = $row["password"];
+               $officeLocation4 = $row["office_location"];
+               $dateJoined4 = $row["date_joined"];
+               $ProjectID4 = $row["project_id"];
+
+            }
+        }
+        $sql = "SELECT * FROM `lecturer` WHERE lecturer_id='5'";
+        $result = $connection->query($sql);
+        if ($result->num_rows > 0) {
+            if($row = mysqli_fetch_assoc($result)) {
+               $studentID5 = $row["lecturer_id"];
+               $full_name5 = $row["full_name"];
+               $contactNo5 = $row["contact_no"];
+               $password5 = $row["password"];
+               $officeLocation5 = $row["office_location"];
+               $dateJoined5 = $row["date_joined"];
+               $ProjectID5 = $row["project_id"];
+
+            }
+        }
+        $sql = "SELECT * FROM `lecturer` WHERE lecturer_id='6'";
+        $result = $connection->query($sql);
+        if ($result->num_rows > 0) {
+            if($row = mysqli_fetch_assoc($result)) {
+               $studentID6 = $row["lecturer_id"];
+               $full_name6 = $row["full_name"];
+               $contactNo6 = $row["contact_no"];
+               $password6 = $row["password"];
+               $officeLocation6 = $row["office_location"];
+               $dateJoined6 = $row["date_joined"];
+               $ProjectID6 = $row["project_id"];
+
+            }
+        }
+        $sql = "SELECT * FROM `lecturer` WHERE lecturer_id='7'";
+        $result = $connection->query($sql);
+        if ($result->num_rows > 0) {
+            if($row = mysqli_fetch_assoc($result)) {
+               $studentID7 = $row["lecturer_id"];
+               $full_name7 = $row["full_name"];
+               $contactNo7 = $row["contact_no"];
+               $password7 = $row["password"];
+               $officeLocation7 = $row["office_location"];
+               $dateJoined7 = $row["date_joined"];
+               $ProjectID7 = $row["project_id"];
+
+            }
+        }
+        $sql = "SELECT * FROM `lecturer` WHERE lecturer_id='8'";
+        $result = $connection->query($sql);
+        if ($result->num_rows > 0) {
+            if($row = mysqli_fetch_assoc($result)) {
+               $studentID8 = $row["lecturer_id"];
+               $full_name8 = $row["full_name"];
+               $contactNo8 = $row["contact_no"];
+               $password8 = $row["password"];
+               $officeLocation8 = $row["office_location"];
+               $dateJoined8 = $row["date_joined"];
+               $ProjectID8 = $row["project_id"];
+
+            }
+        }
+        $sql = "SELECT * FROM `lecturer` WHERE lecturer_id='9'";
+        $result = $connection->query($sql);
+        if ($result->num_rows > 0) {
+            if($row = mysqli_fetch_assoc($result)) {
+               $studentID9 = $row["lecturer_id"];
+               $full_name9 = $row["full_name"];
+               $contactNo9 = $row["contact_no"];
+               $password9 = $row["password"];
+               $officeLocation9 = $row["office_location"];
+               $dateJoined9 = $row["date_joined"];
+               $ProjectID9 = $row["project_id"];
 
             }
         }
@@ -97,7 +197,7 @@
                   </div>
                </div>
                <ul class="sidebar-menu scrollable pos-r">
-                  <li class="nav-item mT-30 active"><a class="sidebar-link" href="/DDWA-Asg1/Admin.php" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">My Project</span></a></li>
+                  <li class="nav-item mT-30 active"><a class="sidebar-link" href="/DDWA-Asg1/Admin.php" default><span class="icon-holder"><i class="c-blue-500 ti-home"></i> </span><span class="title">Home</span></a></li>
                   <li class="nav-item"><a class="sidebar-link" href="/DDWA-Asg1/Admin_StudentInfo.php"><span class="icon-holder"><i class="c-brown-500 ti-email"></i> </span><span class="title">Student Info</span></a></li>
                   <li class="nav-item"><a class="sidebar-link" href="/DDWA-Asg1/AdminLecturerInfo.php"><span class="icon-holder"><i class="c-blue-500 ti-share"></i> </span><span class="title">Lecturer Info</span></a></li>
                </ul>
@@ -117,12 +217,8 @@
                            <div class="peer mR-10"><img class="w-2r bdrs-50p" src="" alt=""></div>
                            <div class="peer"><span class="fsz-sm c-grey-900"><?php echo $fullName?></span></div>
                         </a>
-                        <ul class="dropdown-menu fsz-sm">
-                           <li><a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-settings mR-10"></i> <span>Setting</span></a></li>
-                           <li><a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-user mR-10"></i> <span>Profile</span></a></li>
-                           <li><a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-email mR-10"></i> <span>Messages</span></a></li>
-                           <li role="separator" class="divider"></li>
-                           <li><a href="" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-power-off mR-10"></i> <span>Logout</span></a></li>
+                        <ul class="dropdown-menu fsz-sm">                       
+                           <li><a href="/DDWA-Asg1/Login.php" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-power-off mR-10"></i> <span>Log Out</span></a></li>
                         </ul>
                      </li>
                   </ul>
@@ -135,34 +231,17 @@
                      <div class="row">
                         <div class="col-md-12">
                            <div class="bgc-white bd bdrs-3 p-20 mB-20">
-                              <h4 class="c-grey-900 mB-20">Admin Particulars</h4>
-                              <p>Your particulars</p>
+                              <h4 class="c-grey-900 mB-20">Lecturer Information</h4>
+                              <p>Lecturer Particulars</p>                          
                               <table class="table">
                                  <thead>
                                     <tr>
-                                       <th scope="col">Admin ID</th>
-                                       <th scope="col">Admin Name</th>
-                                       <th scope="col">Your Office</th>
-                                    </tr>
-                                 </thead>
-                                 <tbody>
-                                    <tr>
-                                       <td><?php echo $admin_ID?></td>
-                                       <td><?php echo $fullName?></td>
-                                       <td><?php echo $adminOffice?></td>
-                                    </tr>
-                                 </tbody>
-                              </table><br>
-
-                              <table class="table">
-                                 <thead>
-                                    <tr>
-                                       <th scope="col">Student ID</th>
-                                       <th scope="col">Student Name</th>
+                                       <th scope="col">Lecturer ID</th>
+                                       <th scope="col">Lecturer Name</th>
                                        <th scope="col">Conact Number</th>
-                                       <th scope="col">School Name</th>
-                                       <th scope="col">Year Enrolled</th>
-                                       <th scope="col">Notebook Serial Number</th>
+                                       <th scope="col">Password</th>
+                                       <th scope="col">Office Location</th>
+                                       <th scope="col">Date Joined</th>
                                        <th scope="col">Current Project ID</th>
                                     </tr>
                                  </thead>
@@ -171,10 +250,82 @@
                                        <td><?php echo $studentID?></td>
                                        <td><?php echo $full_name?></td>
                                        <td><?php echo $contactNo?></td>
-                                       <td><?php echo $schoolName?></td>
-                                       <td><?php echo $yearEnrolled?></td>
-                                       <td><?php echo $serialNo?></td>
+                                       <td><?php echo $password?></td>
+                                       <td><?php echo $officeLocation?></td>
+                                       <td><?php echo $dateJoined?></td>
                                        <td><?php echo $ProjectID?></td>
+                                    </tr>
+                                    <tr>
+                                       <td><?php echo $studentID2?></td>
+                                       <td><?php echo $full_name2?></td>
+                                       <td><?php echo $contactNo2?></td>
+                                       <td><?php echo $password2?></td>
+                                       <td><?php echo $officeLocation2?></td>
+                                       <td><?php echo $dateJoined2?></td>
+                                       <td><?php echo $ProjectID2?></td>
+                                    </tr>
+                                    <tr>
+                                       <td><?php echo $studentID3?></td>
+                                       <td><?php echo $full_name3?></td>
+                                       <td><?php echo $contactNo3?></td>
+                                       <td><?php echo $password3?></td>
+                                       <td><?php echo $officeLocation3?></td>
+                                       <td><?php echo $dateJoined3?></td>
+                                       <td><?php echo $ProjectID3?></td>
+                                    </tr>
+                                    <tr>
+                                       <td><?php echo $studentID4?></td>
+                                       <td><?php echo $full_name4?></td>
+                                       <td><?php echo $contactNo4?></td>
+                                       <td><?php echo $password4?></td>
+                                       <td><?php echo $officeLocation4?></td>
+                                       <td><?php echo $dateJoined4?></td>
+                                       <td><?php echo $ProjectID4?></td>
+                                    </tr>
+                                    <tr>
+                                       <td><?php echo $studentID5?></td>
+                                       <td><?php echo $full_name5?></td>
+                                       <td><?php echo $contactNo5?></td>
+                                       <td><?php echo $password5?></td>
+                                       <td><?php echo $officeLocation5?></td>
+                                       <td><?php echo $dateJoined5?></td>
+                                       <td><?php echo $ProjectID5?></td>
+                                    </tr>
+                                    <tr>
+                                       <td><?php echo $studentID6?></td>
+                                       <td><?php echo $full_name6?></td>
+                                       <td><?php echo $contactNo6?></td>
+                                       <td><?php echo $password6?></td>
+                                       <td><?php echo $officeLocation6?></td>
+                                       <td><?php echo $dateJoined6?></td>
+                                       <td><?php echo $ProjectID6?></td>
+                                    </tr>
+                                    <tr>
+                                       <td><?php echo $studentID7?></td>
+                                       <td><?php echo $full_name7?></td>
+                                       <td><?php echo $contactNo7?></td>
+                                       <td><?php echo $password7?></td>
+                                       <td><?php echo $officeLocation7?></td>
+                                       <td><?php echo $dateJoined7?></td>
+                                       <td><?php echo $ProjectID7?></td>
+                                    </tr>
+                                    <tr>
+                                       <td><?php echo $studentID8?></td>
+                                       <td><?php echo $full_name8?></td>
+                                       <td><?php echo $contactNo8?></td>
+                                       <td><?php echo $password8?></td>
+                                       <td><?php echo $officeLocation8?></td>
+                                       <td><?php echo $dateJoined8?></td>
+                                       <td><?php echo $ProjectID8?></td>
+                                    </tr>
+                                    <tr>
+                                       <td><?php echo $studentID9?></td>
+                                       <td><?php echo $full_name9?></td>
+                                       <td><?php echo $contactNo9?></td>
+                                       <td><?php echo $password9?></td>
+                                       <td><?php echo $officeLocation9?></td>
+                                       <td><?php echo $dateJoined9?></td>
+                                       <td><?php echo $ProjectID9?></td>
                                     </tr>
                                  </tbody>
                               </table><br>
