@@ -293,7 +293,7 @@ input[type=text]:placeholder {
   <option value="2">Lecturer</option>
   <option value="3">Admin</option>
 </select>
-      <input type="text" id="login" class="fadeIn second" name="login" placeholder="login">
+      <input type="text" id="login" class="fadeIn second" name="login" placeholder="user ID">
       <input type="text" id="password" class="fadeIn third" name="password" placeholder="password">
       <input type="submit" class="fadeIn fourth" value="Log In">
     </form>
