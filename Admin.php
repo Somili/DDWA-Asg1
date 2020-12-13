@@ -222,7 +222,7 @@
                            <div class="peer"><span class="fsz-sm c-grey-900"><?php echo $fullName?></span></div>
                         </a>
                         <ul class="dropdown-menu fsz-sm">
-                           <li><a href="/DDWA-Asg1/Login.php" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-power-off mR-10"></i> <span>Log Out</span></a></li>
+                           <li><a href="/DDWA-Asg1/jindex.php" class="d-b td-n pY-5 bgcH-grey-100 c-grey-700"><i class="ti-power-off mR-10"></i> <span>Log Out</span></a></li>
                         </ul>
                      </li>
                   </ul>

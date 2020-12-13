@@ -29,7 +29,7 @@
             $_SESSION["loginUserID"] = $loginID;
             header("Location: Student.php");
         } else {
-          echo '<script language="javascript">alert("Wrong UserID/Password");location.href="Login.php";</script>';
+          echo '<script language="javascript">alert("Wrong UserID/Password");location.href="index.php";</script>';
         }
     }
     else if($userType == "2"){
@@ -43,7 +43,7 @@
             $_SESSION["loginUserID"] = $loginID;
             header("Location: Lecturer.php");
         } else {
-          echo '<script language="javascript">alert("Wrong UserID/Password");location.href="Login.php";</script>';
+          echo '<script language="javascript">alert("Wrong UserID/Password");location.href="index.php";</script>';
         }
 
 
@@ -58,18 +58,8 @@
       header("Location: Admin.php");
         }
       else {
-        echo '<script language="javascript">alert("Wrong UserID/Password");location.href="Login.php";</script>';
+        echo '<script language="javascript">alert("Wrong UserID/Password");location.href="index.php";</script>';
       }
-      //   $sql = "SELECT * FROM 'admin' WHERE admin_id=". $loginID . "' and password='". $password ."'";
-      //   $result = $connection->query($sql);
-      //   if ($result->num_rows > 0) {
-      //     //login successfully
-      //     session_start();
-      //     $_SESSION["loginUserID"] = $loginID;
-      //     header("Location: Admin.php");
-      // } else {
-      //   echo '<script language="javascript">alert("Wrong UserID/Password");location.href="Login.php";</script>';
-      // }
     }
 
   }
